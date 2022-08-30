@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} Login Page {% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                        <h3 class="my-h">Login</h3>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                {{ form.as_p }}
+                            </div>
+
+                            <div class="card-footer" style="background-color: aliceblue; border:aliceblue">
+                                <button type="submit" class="btn btn-outline-success"
+                                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">Login
+                                </button>
+                                <a href="{% url 'password_reset' %}" class="btn btn-outline-danger"
+                                   style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">Forgot my Password</a>
+                                <a href="{% url 'create-user' %}" class="btn btn-outline-success"
+                                   style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; float: right">Creeaza Cont</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

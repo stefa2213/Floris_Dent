@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} FlorisDent Prima Pagina {% endblock %}
+{% load static %}
+
+{% block content %}
+    {#    <body style="background-image: {% static 'images/foto1.png' %}">#}
+    <body class="pp_body">
+    <style>
+        .btn-pp {
+            text-decoration: none;
+            background-color: #e0ffff;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+            font-size: 30px;
+            margin: 25px;
+            padding: 25px;
+            flex: auto;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 15px;
+        }
+    </style>
+    <div class="col-md-6 offset-md-3" style="font-size: xx-large">
+        <h1 class="my_header text-center"> Bun Venit la FlorisDent! </h1>
+        <br><br><br>
+        <div class="row">
+            <a class="btn-pp" href="{% url 'create-programare' %}" type="button" title="Formular programare online">Sunt Pacient</a>
+            <a class="btn-pp" href="{% url 'login' %}" type="button" title="Logheaza-te">Sunt Doctor
+            </a>
+        </div>
+    </div>
+    </body>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Doctorii FlorisDent {% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% for doctor in all_doctors %}
+            <div class="col-sm-4">
+                <div class="card"
+                     style="width: 23rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:10px; margin: 8%;background-color: lightcyan">
+                    {% if doctor.image %}
+                        <img src="{{ doctor.image.url }}" class="card-img-top" alt="image_doc">
+                    {% else %}
+                        <img src="{% static 'images/logo_profile_doc.jpg' %}">
+                    {% endif %}
+                    <div class="card-header" style="background-color: lightcyan"><h2>Dr. {{ doctor.nume_doctor }}</h2>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title text-center">{{ doctor.specializare }}</h4>
+                        <p class="card-text text-center">Experienta in domeniu: {{ doctor.experienta }} ani </p>
+                        <p class="card-text text-center">Descriere: {{ doctor.descriere }}</p>
+                    </div>
+                    {% if perms.doctori.change_doctor %}
+                        <a href="{% url 'update-doctori' doctor.id %}" class="btn btn-warning"
+                           style="margin: 2px; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; display: flex; justify-content: center">Modifica
+                        </a>
+                    {% endif %}
+                    {% if perms.doctori.delete_doctor %}
+                        <button type="button" class="btn btn-danger"
+                                data-bs-toggle="modal"
+                                data-bs-target="#doctor_sterge_{{ doctor.id }}"
+                                style="margin: 2px; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; display: flex; justify-content: center">
+                            Sterge
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="modal fade" id="doctor_sterge_{{ doctor.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sterge Doctor</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Doctorul "{{ doctor.nume_doctor }}" va fi sters. Confirmi?
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{% url 'delete-doctor' doctor.id %}" class="btn btn-danger">Da</a>
+                            <button type="button" class="btn btn-info" data-bs-dismiss="modal">
+                                Nu
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

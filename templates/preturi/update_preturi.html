@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Modifica Serviciu / Pret {% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                    <div class="card-header">
+                        <h3 class="text-center">Modifica Serviciu</h3>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        {%  csrf_token %}
+                        <div class="card-body">
+                            {{ form.as_p }}
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-success">Salveaza</button>
+                        </div>
+                    </form>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div>
+{% endblock %}

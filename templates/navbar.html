@@ -1,0 +1,132 @@
+{% load static %}
+
+
+<style>
+
+    .navbar {
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+
+    .nav-item {
+        font-weight: bold;
+        font-family: "Microsoft Sans Serif";
+        margin: 1px;
+    }
+
+    .nav-link:hover {
+        opacity: 0.9;
+        text-shadow: #D4B6DEFF -3px -5px 5px;
+    }
+
+    .b_user {
+        border-radius: 25px;
+        font-family: "Microsoft Sans Serif";
+    }
+
+    .b_user:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 25px;
+        background: rgb(252,252,252);
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,155,255,1) 90%);
+    }
+
+</style>
+
+
+<nav class="navbar navbar-expand-lg" style="background-color: #e0ffff; height: 80px">
+    <div class="container-fluid">
+        <a id="navbar-brand" class="navbar-brand" href="{% url 'home' %}" title="Prima Pagina FlorisDent">
+            <img src="https://www.florisdent.ro/florisdent_project/static/images/florisdent_logo.svg"
+                 style="height: 23px; margin-bottom: 6px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'about' %}"
+                       title="Informatii despre noi" style="font-weight: bold;">Despre Noi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'list-preturi' %}"
+                       title="Vezi serviciile noastre!">Servicii</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'list-of-doctori' %}"
+                       title="Vezi doctorii nostri!">Dcotori</a>
+                </li>
+                <li class="nav-item d-flex">
+                    <a class="nav-link active" aria-current="page" href="{% url 'locatie' %}"
+                       title="Vezi unde ne gasesti in Constanta">Localizare
+                        <Clinica></Clinica>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" title="Galerie lucrari">
+                        Galerie
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" title="Vezi protezele facute la noi!">Proteze</a></li>
+                        <li><a class="dropdown-item" href="#" title="Vezi implaturile facute de noi!">Implanturi
+                            coronite</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#" title="Vezi lucrarile noastre!">Lucrarile noastre</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" title="Fa o programare!" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                        border-radius: 25px; background: rgb(252,252,252); background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,155,255,1) 90%);">
+                        Programare
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://api.whatsapp.com/send?phone=+40723751346&text=Buna ziua, as dori o programare, ma puteti ajuta?" title="Contacteaza-ne prin What's App">Telefonic / Whats
+                            App</a></li>
+                        <li><a class="dropdown-item" href="{% url 'create-programare' %}"
+                               title="Programeaza-te cu formularul nostru!">Formular programare</a></li>
+                    </ul>
+                </li>
+                <a class="navbar-brand" href="https://api.whatsapp.com/send?phone=+40723751346&text=Buna ziua, as dori o programare, ma puteti ajuta?" title="Contacteaza-ne prin What's App">
+                    <img src="{% static 'images/wapp.png' %}" style="height: 25px; padding-top: 1px">
+                </a>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'create-preturi' %}"
+                           title="Vezi preturile clinicii!">Adauga Serviciu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'list-of-programari' %}"
+                           title="Vezi preturile clinicii!">Programarile Mele</a>
+                    </li>
+                {% endif %}
+                {% if perms.doctori.add_doctor %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'create-doctori' %}"
+                           title="Vezi preturile clinicii!">Adauga Doctor</a>
+                    </li>
+                {% endif %}
+            </ul>
+            {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <button class="btn b_user dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Salut, Dr. {{ user }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <a class="dropdown-item text-center" href="{% url 'logout' %}" class="btn btn-info">Log
+                            out</a>
+                        <li><a class="dropdown-item text-center" href="{% url 'password_change' %}">Change
+                            password</a></li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
