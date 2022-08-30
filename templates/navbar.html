@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <style>
 
     .navbar {
@@ -13,11 +12,14 @@
         font-weight: bold;
         font-family: "Microsoft Sans Serif";
         margin: 1px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        color: black;
+        border-radius: 25px;
+
     }
 
-    .nav-link:hover {
-        opacity: 0.9;
-        text-shadow: #D4B6DEFF -3px -5px 5px;
+    .nav-item:hover {
+        box-shadow: #D4B6DEFF -3px -5px 5px;
     }
 
     .b_user {
@@ -28,8 +30,8 @@
     .b_user:hover {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         border-radius: 25px;
-        background: rgb(252,252,252);
-        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,155,255,1) 90%);
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
     }
 
 </style>
@@ -65,6 +67,12 @@
                         <Clinica></Clinica>
                     </a>
                 </li>
+                <li class="nav-item d-flex">
+                    <a class="nav-link active" aria-current="page" href="{% url 'create-mesaj' %}"
+                       title="Contacteaza-ne!">Contact
+                        <Clinica></Clinica>
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false" title="Galerie lucrari">
@@ -87,13 +95,17 @@
                         Programare
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="https://api.whatsapp.com/send?phone=+40723751346&text=Buna ziua, as dori o programare, ma puteti ajuta?" title="Contacteaza-ne prin What's App">Telefonic / Whats
+                        <li><a class="dropdown-item"
+                               href="https://api.whatsapp.com/send?phone=+40723751346&text=Buna ziua, as dori o programare, ma puteti ajuta?"
+                               title="Contacteaza-ne prin What's App">Telefonic / Whats
                             App</a></li>
                         <li><a class="dropdown-item" href="{% url 'create-programare' %}"
                                title="Programeaza-te cu formularul nostru!">Formular programare</a></li>
                     </ul>
                 </li>
-                <a class="navbar-brand" href="https://api.whatsapp.com/send?phone=+40723751346&text=Buna ziua, as dori o programare, ma puteti ajuta?" title="Contacteaza-ne prin What's App">
+                <a class="navbar-brand"
+                   href="https://api.whatsapp.com/send?phone=+40723751346&text=Buna ziua, as dori o programare, ma puteti ajuta?"
+                   title="Contacteaza-ne prin What's App">
                     <img src="{% static 'images/wapp.png' %}" style="height: 25px; padding-top: 1px">
                 </a>
                 {% if user.is_authenticated %}

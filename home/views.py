@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import CreateView, ListView, UpdateView, DetailView, DeleteView, TemplateView
 from django.core.mail import send_mail
+from django.urls import reverse, reverse_lazy
+from home.models import Mesaj
+from home.forms import MesajForm
 from Floris_Dent.settings import EMAIL_HOST_USER
 
 
@@ -16,15 +19,9 @@ class AboutTemplateView(TemplateView):
     template_name = 'home/about.html'
 
 
-# def send_mail_reset(request):
-#     form = EmailForm(request.POST)
-#     if form.is_valid():
-#         subject = 'Un nou cont'
-#         my_html_msg = render_to_string('email/email_signup.html', {'new_user': noul_cont})
-#         email_add = form.cleaned_data['email']
-#         try:
-#             send_mail(subject, message, EMAIL_HOST_USER, [email_add], html_message=my_html_msg)
-#         except:
-#             print("An exception occurred")
-#
-#         return redirect('login')
+
+class MesajCreateView(CreateView):
+    template_name = 'home/contact.html'
+    model = Mesaj
+    form_class = MesajForm
+    success_url = reverse_lazy('create-mesaj')
