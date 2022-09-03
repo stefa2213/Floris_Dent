@@ -37,7 +37,7 @@ schimba branch-ul curent
 
 ===================================================
 
-in terminal: git add Floris_dent / git commit -m "first commit" / git push (dupa rezolvarea cu USER_HOST...)
+# adauga istoric pacient
 
 
 
@@ -47,15 +47,8 @@ in terminal: git add Floris_dent / git commit -m "first commit" / git push (dupa
 
 
 
-
-
-# FlorisDent - Aplicatie web pentru o clinica stomatologica
-
-# os.envirom ... nu se mai trimit emailuri
-# mail de trimis atunci cand resetam parola... smtp...
-# image in models Doctori, eroare la Pillow, eroare la comanda ... migrate
+# elementele din dd navbar nu sunt complet negre
 # probleme cu footer-ul, nu sta in josul paginii
 # trebuie facute foldere separat pentru versiunea web si mobila? se poate face o functie ..sa devina responsive
-# elementele din dd navbar nu sunt complet negre
 
 

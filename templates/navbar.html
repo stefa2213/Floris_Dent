@@ -110,6 +110,10 @@
                 </a>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'list-of-mesaje' %}"
+                           title="Vezi preturile clinicii!">Vezi Mesaje</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'create-preturi' %}"
                            title="Vezi preturile clinicii!">Adauga Serviciu</a>
                     </li>

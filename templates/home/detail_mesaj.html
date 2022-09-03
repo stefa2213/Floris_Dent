@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Citeste Mesaj {% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; width: auto; background-color: lightcyan">
+                    <div class="card-header">
+                        <h3 class="my_header text-center">Mesaj Detaliat</h3>
+                    </div>
+                    <div class="card-body">
+                        <p style="font-weight: bold;">SCRIS DE: {{ mesaj.nume }}</p>
+                        <p style="font-weight: bold;">EMAIL: {{ mesaj.email }}, NUMAR TELEFON: {{ mesaj.numar_telefon }}</p>
+                        <p style="font-weight: bold;"> SUBIECT: {{ mesaj.subiect }}</p>
+                        <p style="font-weight: bold;">CONTINUT MESAJ: {{ mesaj.mesaj }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p style="font-weight: bold;">MESAJ PRIMIT LA DATA DE: {{ mesaj.created_at }}</p>
+                        <p style="font-weight: bold;">STAREA MESAJULUI: {% if mesaj.active is True %}
+                        Nerezolvat
+                            {% else %}
+                            Rezolvat
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

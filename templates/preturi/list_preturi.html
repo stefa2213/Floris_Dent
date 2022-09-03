@@ -1,7 +1,29 @@
 {% extends 'base.html' %}
 {% block title %} Lista de preturi {% endblock %}
 
+
 {% block content %}
+
+<style>
+    .dropdown-toggle:hover {
+        color: #1c1f23;
+    }
+
+    .nav-item {
+        list-style-type: none;
+    }
+
+    .nav-item:hover {
+        font-weight: bold;
+    }
+
+    .dropdown-item {
+        color: black;
+        font-weight: bold;
+    }
+
+</style>
+
     <h2 class="my_header text-center">Lista de preturi la FlorisDent</h2>
     <br>
     <div class="container-fluid">
@@ -46,7 +68,7 @@
                                 <td>{{ pret.detalii }}</td>
                                 <td>{{ pret.durata }}</td>
                                 <td>
-                                    <li class="nav-item dropdown" style="list-style-type: none">
+                                    <li class="nav-item dropdown">
                                         <button class="btn dropdown-toggle" id="navbarDropdown"
                                                 role="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">

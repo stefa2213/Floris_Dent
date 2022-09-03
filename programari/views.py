@@ -47,7 +47,7 @@ class ProgramareListView(ListView):
         all_programari = Programari.objects.all()
         data['programari'] = all_programari
 
-        my_filter_ = ProgramariFilters(self.request.GET, queryset=all_programari)
+        my_filter_ = ProgramariFilters(self.request.GET, queryset=all_programari.order_by('ora_programare'))
         data['all_programari'] = my_filter_.qs
         data['my_filter'] = my_filter_
 
