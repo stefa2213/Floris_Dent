@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block title %} Lista Servicii Dezactivate {% endblock %}
+
+
+{% block content %}
+
+    <style>
+        .dropdown-toggle:hover {
+            color: #1c1f23;
+        }
+
+        .nav-item {
+            list-style-type: none;
+        }
+
+        .nav-item:hover {
+            font-weight: bold;
+        }
+
+        .dropdown-item {
+            color: black;
+            font-weight: bold;
+        }
+
+        .table_thead {
+            border: 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            color: black;
+            padding: 10px;
+        }
+
+        .table-hover {
+        {#font-weight: bold;#} color: darkblue;
+            opacity: 0.8;
+        }
+
+    </style>
+
+    <h2 class="my_header text-center">Servicii Dezactivate</h2>
+    <br><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card"
+                     style="width: 23rem; position: fixed; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: lightcyan">
+                    <h2 class="my-h text-center">Filtru Cautare</h2>
+                    <hr>
+                    <form class="my-h" method="get">
+                        {{ my_filter_anulate.form.as_p }}
+                        <hr>
+                        <button type="submit" class="btn btn-success"
+                                style="width: 10rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:2px; margin: 2%;">
+                            Cauta
+                        </button>
+                        <a href="{% url 'list-preturi-dezactivate' %}" class="btn btn-outline-danger"
+                           style="width: 10rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:2px; margin: 2%;">
+                            Sterge Campuri</a>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-light table-hover">
+                    <thead class="table_thead">
+                    <tr>
+                        <th>Nume serviciu</th>
+                        <th>Pret Serviciu</th>
+                        <th>Detalii Serviciu</th>
+                        <th>Durata (minute)</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for pret in all_preturi_anulate %}
+                        {% if pret.active is False %}
+                            <tr>
+                                <td>{{ pret.nume_serviciu }}</td>
+                                <td>{{ pret.pret_serviciu }}</td>
+                                <td>{{ pret.detalii }}</td>
+                                <td>{{ pret.durata }}</td>
+                                <td>
+                                    <li class="nav-item dropdown" style="width: 3rem">
+                                        <button class="btn dropdown-toggle" id="navbarDropdown"
+                                                role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item"
+                                                   href="{% url 'update-preturi' pret.id %}">Modifica</a></li>
+                                            <li><a href="{% url 'activate-pret' pret.id %}"
+                                                   class="dropdown-item btn-danger">Activeaza</a>
+                                            </li>
+                                            <li>
+                                                <button type="button" class="dropdown-item btn-info"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#pret_{{ pret.id }}" style="color: red">
+                                                    Sterge
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </td>
+                            </tr>
+                            <div class="modal fade" id="pret_{{ pret.id }}" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Sterge Serviciu</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Esti sigur ca vrei sa stergi serviciul: "{{ pret.nume_serviciu }}"?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{% url 'delete-pret-modal' pret.id %}"
+                                               class="btn btn-danger">Da</a>
+                                            <button type="button" class="btn btn-info" data-bs-dismiss="modal">Nu
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    {% if user.is_authenticated %}
+        <div class="d-grid gap-2 col-2 mx-auto">
+            <a href="{% url 'list-preturi' %}" class="btn btn-primary" type="button">Servicii
+                Active</a>
+        </div>
+    {% endif %}
+
+{% endblock %}

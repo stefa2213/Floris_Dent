@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.HomeTemplateView.as_view(), name='home'),
     path('locatie/', views.LocationTemplateView.as_view(), name='locatie'),
     path('about/', views.AboutTemplateView.as_view(), name='about'),
+    path('galerie/', views.GalerieTemplateView.as_view(), name='galerie'),
     path('create_mesaj/', views.MesajCreateView.as_view(), name='create-mesaj'),
     path('detail_mesaj/<int:pk>/', views.MesajDetailView.as_view(), name='detail-mesaj'),
     path('list_of_mesaje/', views.MesajListView.as_view(), name='list-of-mesaje'),

@@ -1,13 +1,12 @@
-from django.shortcuts import render
-from django.views.generic import CreateView, ListView, UpdateView, DetailView, DeleteView, TemplateView
-from django.core.mail import send_mail
-from django.urls import reverse, reverse_lazy
-from home.models import Mesaj
-from home.forms import MesajForm
-from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView, DetailView, TemplateView
+
 from home.filters import MesajeFilters
-from Floris_Dent.settings import EMAIL_HOST_USER
-from django.contrib import messages
+from home.forms import MesajForm
+from home.models import Mesaj
 
 
 class HomeTemplateView(TemplateView):
@@ -22,6 +21,10 @@ class AboutTemplateView(TemplateView):
     template_name = 'home/about.html'
 
 
+class GalerieTemplateView(TemplateView):
+    template_name = 'home/galerie.html'
+
+
 class MesajCreateView(CreateView):
     template_name = 'home/contact.html'
     model = Mesaj
@@ -29,12 +32,12 @@ class MesajCreateView(CreateView):
     success_url = reverse_lazy('create-mesaj-succes')
 
 
-class MesajDetailView(DetailView):
+class MesajDetailView(LoginRequiredMixin, DetailView):
     template_name = 'home/detail_mesaj.html'
     model = Mesaj
 
 
-class MesajListView(ListView):
+class MesajListView(LoginRequiredMixin, ListView):
     template_name = 'home/list_of_mesaje.html'
     model = Mesaj
     context_object_name = 'all_mesaje'
@@ -51,7 +54,7 @@ class MesajListView(ListView):
         return data
 
 
-class MesajListViewArhivate(ListView):
+class MesajListViewArhivate(LoginRequiredMixin, ListView):
     template_name = 'home/list_of_mesaje_arhiva.html'
     model = Mesaj
     context_object_name = 'all_mesaje_arhivate'
@@ -72,16 +75,19 @@ class MsgSuccessTemplateView(TemplateView):
     template_name = 'home/create_mesaj_succes.html'
 
 
+@permission_required('mesaj.change_mesaj')
 def rezolvare_mesaj(request, pk):
     Mesaj.objects.filter(id=pk).update(active=False)
     return redirect('list-of-mesaje')
 
 
+@permission_required('mesaj.change_mesaj')
 def nerezolvare_mesaj(request, pk):
     Mesaj.objects.filter(id=pk).update(active=True)
     return redirect('list-of-mesaje')
 
 
+@permission_required('mesaj.change_mesaj')
 def sterge_mesaj(request, pk):
     Mesaj.objects.filter(id=pk).delete()
     return redirect('list-of-mesaje-arhivate')

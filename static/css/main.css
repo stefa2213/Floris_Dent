@@ -3,7 +3,7 @@
     color: #00008b;
     font-size: xxx-large;
     font-family: Inder, Verdana, Paytone One;
-    text-shadow: 0 7px 8px #c4b59d;
+    text-shadow: 0 17px 8px #c4b59d;
 }
 
 .navbar-brand:hover {
@@ -19,18 +19,6 @@
     opacity: 0.7;
 }
 
-
-.btn-pp:hover {
-    opacity: 0.9;
-    background-color: #ed9bff;
-    box-shadow: 8px 2px 8px #c4b59d;
-}
-
-.btn-pp:active {
-    opacity: 0.8;
-    background-color: rgb(100, 172, 226);
-    box-shadow: 0 2px 8px #c4b59d;
-}
 
 #btn_wapp:hover {
     opacity: 0.5;

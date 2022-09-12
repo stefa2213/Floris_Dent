@@ -7,6 +7,7 @@
     <body class="pp_body">
     <style>
         .btn-pp {
+
             text-decoration: none;
             background-color: #e0ffff;
             box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
@@ -15,17 +16,30 @@
             padding: 25px;
             flex: auto;
             text-align: center;
-            text-decoration: none;
-            border-radius: 15px;
+            border-radius: 35px;
         }
+
+        .btn-pp:hover {
+            opacity: 0.9;
+            color: darkblue;
+            background: rgb(252, 252, 252);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+        }
+
+        .btn-pp:active {
+            opacity: 0.8;
+            background-color: rgb(100, 172, 226);
+            box-shadow: 0 2px 8px #c4b59d;
+        }
+
     </style>
     <div class="col-md-6 offset-md-3" style="font-size: xx-large">
         <h1 class="my_header text-center"> Bun Venit la FlorisDent! </h1>
         <br><br><br>
         <div class="row">
-            <a class="btn-pp" href="{% url 'create-programare' %}" type="button" title="Formular programare online">Sunt Pacient</a>
-            <a class="btn-pp" href="{% url 'login' %}" type="button" title="Logheaza-te">Sunt Doctor
-            </a>
+            <a class="btn-pp" href="{% url 'create-programare' %}" type="button" title="Formular programare online">Sunt
+                Pacient</a>
+            <a class="btn-pp" href="{% url 'login' %}" type="button" title="Logheaza-te">Sunt Doctor</a>
         </div>
     </div>
     </body>

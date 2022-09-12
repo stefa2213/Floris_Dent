@@ -3,7 +3,7 @@ from django.db import models
 
 class Pret(models.Model):
     nume_serviciu = models.CharField(max_length=50)
-    pret_serviciu = models.IntegerField()
+    pret_serviciu = models.CharField(max_length=50)
     detalii = models.CharField(blank=True, max_length=100)
     durata = models.CharField(max_length=20)
 

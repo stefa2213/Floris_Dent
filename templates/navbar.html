@@ -2,6 +2,11 @@
 
 <style>
 
+    #navbar-brand{
+        margin: 1rem;
+        margin-right: 3rem;
+    }
+
     .navbar {
         border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -41,18 +46,16 @@
     <div class="container-fluid">
         <a id="navbar-brand" class="navbar-brand" href="{% url 'home' %}" title="Prima Pagina FlorisDent">
             <img src="https://www.florisdent.ro/florisdent_project/static/images/florisdent_logo.svg"
-                 style="height: 23px; margin-bottom: 6px">
+                 style="height: 2rem;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+    <br>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'about' %}"
-                       title="Informatii despre noi" style="font-weight: bold;">Despre Noi</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'list-preturi' %}"
                        title="Vezi serviciile noastre!">Servicii</a>
@@ -64,48 +67,35 @@
                 <li class="nav-item d-flex">
                     <a class="nav-link active" aria-current="page" href="{% url 'locatie' %}"
                        title="Vezi unde ne gasesti in Constanta">Localizare
-                        <Clinica></Clinica>
                     </a>
                 </li>
                 <li class="nav-item d-flex">
                     <a class="nav-link active" aria-current="page" href="{% url 'create-mesaj' %}"
                        title="Contacteaza-ne!">Contact
-                        <Clinica></Clinica>
+                    </a>
+                </li>
+                <li class="nav-item d-flex">
+                    <a class="nav-link active" aria-current="page" href="{% url 'galerie' %}"
+                       title="Contacteaza-ne!">Galerie
                     </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false" title="Galerie lucrari">
-                        Galerie
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" title="Vezi protezele facute la noi!">Proteze</a></li>
-                        <li><a class="dropdown-item" href="#" title="Vezi implaturile facute de noi!">Implanturi
-                            coronite</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#" title="Vezi lucrarile noastre!">Lucrarile noastre</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false" title="Fa o programare!" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                       aria-expanded="false" title="Fa o programare!" style="color: darkblue; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                         border-radius: 25px; background: rgb(252,252,252); background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,155,255,1) 90%);">
                         Programare
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item"
                                href="https://api.whatsapp.com/send?phone=+40723751346&text=Buna ziua, as dori o programare, ma puteti ajuta?"
-                               title="Contacteaza-ne prin What's App">Telefonic / Whats
-                            App</a></li>
+                               title="Contacteaza-ne prin What's App">Telefonic / WhatsApp</a></li>
                         <li><a class="dropdown-item" href="{% url 'create-programare' %}"
                                title="Programeaza-te cu formularul nostru!">Formular programare</a></li>
                     </ul>
                 </li>
                 <a class="navbar-brand"
                    href="https://api.whatsapp.com/send?phone=+40723751346&text=Buna ziua, as dori o programare, ma puteti ajuta?"
-                   title="Contacteaza-ne prin What's App">
+                   title="Contacteaza-ne prin WhatsApp">
                     <img src="{% static 'images/wapp.png' %}" style="height: 25px; padding-top: 1px">
                 </a>
                 {% if user.is_authenticated %}

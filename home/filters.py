@@ -9,11 +9,10 @@ class MesajeFilters(django_filters.FilterSet):
     email = django_filters.CharFilter(lookup_expr='icontains', label='Adresa Email')
     numar_telefon = django_filters.CharFilter(lookup_expr='icontains', label='Numar Telefon')
     subiect = django_filters.CharFilter(lookup_expr='icontains', label='Subiect')
-    mesaj = django_filters.CharFilter(lookup_expr='icontains', label='Mesaj')
 
     class Meta:
         model = Mesaj
-        fields = ['nume', 'email', 'numar_telefon', 'subiect', 'mesaj']
+        fields = ['nume', 'email', 'numar_telefon', 'subiect']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -25,5 +24,3 @@ class MesajeFilters(django_filters.FilterSet):
             {'class': 'form-control', 'placeholder': 'Cautati dupa numar de telefon'})
         self.filters['subiect'].field.widget.attrs.update(
             {'class': 'form-control', 'placeholder': 'Cautati dupa subiect'})
-        self.filters['mesaj'].field.widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Cautati dupa mesaj'})

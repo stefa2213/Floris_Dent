@@ -37,18 +37,19 @@ schimba branch-ul curent
 
 ===================================================
 
-# adauga istoric pacient
+# adauga istoric pacient (daca e timp)
+# dezactivare serviciu - sa vada doar doctorul pe cele dezactivate
 
 
 
+# de stilizat page errors
+# conditie, daca programarea este la o data trecuta fata de cea prezentam sa se mute in anulate..
 
-
-
-
-
-
-# elementele din dd navbar nu sunt complet negre
 # probleme cu footer-ul, nu sta in josul paginii
 # trebuie facute foldere separat pentru versiunea web si mobila? se poate face o functie ..sa devina responsive
 
 
+# steps done for deplot the project:
+
+# https://alicecampkin.medium.com/how-to-set-up-environment-variables-in-django-f3c4db78c55f#:~:text=%20How%20to%20set
+%20up%20environment%20variables%20in,file%20already%2C%20create%20one%20at%20the...%20More%20

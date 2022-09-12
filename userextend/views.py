@@ -1,9 +1,8 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.template.loader import render_to_string
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from Floris_Dent.settings import EMAIL_HOST_USER
@@ -11,7 +10,7 @@ from userextend.forms import UserExtendForm
 from userextend.models import UserExtend
 
 
-class UserExtendCreateView(CreateView):
+class UserExtendCreateView(LoginRequiredMixin, CreateView):
     template_name = 'userextend/create_user.html'
     model = UserExtend
     form_class = UserExtendForm
