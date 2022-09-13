@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la'
+SECRET_KEY = 'my_django_project_florisdent_django-secure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la23232323232323232323'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # keep it True for local and False for production.
@@ -142,6 +142,15 @@ USE_I18N = True
 
 USE_TZ = True
 
+# settings modified for python manage.py --deploy
+
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_SECONDS = 1
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -155,6 +164,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = (os.path.join(BASE_DIR), 'static')
 
 MEDIA_URL = '/media/'
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'
