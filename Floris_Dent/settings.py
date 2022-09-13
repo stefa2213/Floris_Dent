@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os.path
 import os
 from pathlib import Path
-import environ
+# import environ
 
-env = environ.Env()
-environ.Env.read_env()
+# env = environ.Env()
+# environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # from django_filters import rest_framework
 
@@ -26,16 +26,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']  # 'django-insecure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la'
+SECRET_KEY = 'django-insecure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # keep it True for local and False for production
+DEBUG = False  # keep it True for local and False for production
 
-ALLOWED_HOSTS = []  # 'https://www.florisdent.ro' , '185.179.158.184'
+ALLOWED_HOSTS = ['www.florisdent.ro', '185.179.158.184'] #/ [] on local #  ['127.0.0.1', '.herokuapp.com'] / 'https://www.florisdent.ro' , '185.179.158.184'
 
 # Application definition
 
 INSTALLED_APPS = [
+    # 'whitenoise.runserver_nostatic',  # for heroku deploy...
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', # for heroku deploy...
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -91,17 +93,25 @@ DATABASES = {
     }
 }
 
+# import dj_database_url
+
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': env('DATABASE_NAME'),
-#         'USER': env('DATABASE_USER'),
-#         'PASSWORD': env('DATABASE_PASS'),
-#         'SECRET_KEY' : env('SECRET_KEY')
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': '<database_name>',
+#         'USER': '<user_name>',
+#         'PASSWORD': '<password>',
+#         'HOST': 'localhost',
+#         'PORT': '',
 #     }
 # }
+#
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
-# for deploying...
+# WHITENOISE_USE_FINDERS = True # add for heroku deploy...
+#
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # add for heroku deploy...
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

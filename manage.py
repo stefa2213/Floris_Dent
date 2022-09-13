@@ -4,6 +4,17 @@ import os
 import sys
 
 
+# gazduire version of the script
+
+# def Floris_Dent.wsgi(environ, start_response):
+#     start_response('200 OK', [('Content-Type', 'text/plain')])
+#     message = 'It works!\n'
+#     version = 'Python v' + sys.version.split()[0] + '\n'
+#     response = '\n'.join([message, version])
+#     return [response.encode()]
+
+# my version of the script
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Floris_Dent.settings')

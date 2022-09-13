@@ -1,55 +1,62 @@
---stefan.nosca@florisdent.ro
-Florisdent.ro2213
---craciun.florentina@florisdent.ro
-Florisdent.ro1404
+# --stefan.nosca@florisdent.ro
+# Florisdent.ro2213
+# --craciun.florentina@florisdent.ro
+# Florisdent.ro1404
+#
+# --DirectAdmin
+#
+# florisde
+# Directadmin.ro2213
+#
+# --gazduire.net
+#
+# S
+# Gazduire.net2213
+#
+# ======================================================
+#
+# # Comenzile pe GIT
+#
+# git clone https://project.com
+#
+# git status
+# ofera informatii despre stadiul proiectului local
+#
+# git add settings.py
+#
+# git commit -m "updated list view for storage items"
+#
+# git push
+# impinge noile local commits
+#
+# git checkout -b branch_name
+# creeaza un branch nou
+#
+# git checkout branch_name
+# schimba branch-ul curent
+#
+# ===================================================
+#
+# # adauga istoric pacient (daca e timp)
+# # dezactivare serviciu - sa vada doar doctorul pe cele dezactivate
+#
+#
+#
+# # de stilizat page errors
+# # conditie, daca programarea este la o data trecuta fata de cea prezentam sa se mute in anulate..
+#
+# # probleme cu footer-ul, nu sta in josul paginii
+# # trebuie facute foldere separat pentru versiunea web si mobila? se poate face o functie ..sa devina responsive
+#
+#
+# # steps done for deplot the project:
+#
+# # https://alicecampkin.medium.com/how-to-set-up-environment-variables-in-django-f3c4db78c55f#:~:text=%20How%20to%20set
+# %20up%20environment%20variables%20in,file%20already%2C%20create%20one%20at%20the...%20More%20
 
---DirectAdmin
+# for procfile :
+# web: gunicorn gettingstarted.wsgi
+#
+# web: python manage.py runserver 0.0.0.0:5000
 
-florisde
-Directadmin.ro2213
-
---gazduire.net
-
-S
-Gazduire.net2213
-
-======================================================
-
-# Comenzile pe GIT
-
-git clone https://project.com
-
-git status
-ofera informatii despre stadiul proiectului local
-
-git add settings.py
-
-git commit -m "updated list view for storage items"
-
-git push
-impinge noile local commits
-
-git checkout -b branch_name
-creeaza un branch nou
-
-git checkout branch_name
-schimba branch-ul curent
-
-===================================================
-
-# adauga istoric pacient (daca e timp)
-# dezactivare serviciu - sa vada doar doctorul pe cele dezactivate
-
-
-
-# de stilizat page errors
-# conditie, daca programarea este la o data trecuta fata de cea prezentam sa se mute in anulate..
-
-# probleme cu footer-ul, nu sta in josul paginii
-# trebuie facute foldere separat pentru versiunea web si mobila? se poate face o functie ..sa devina responsive
-
-
-# steps done for deplot the project:
-
-# https://alicecampkin.medium.com/how-to-set-up-environment-variables-in-django-f3c4db78c55f#:~:text=%20How%20to%20set
-%20up%20environment%20variables%20in,file%20already%2C%20create%20one%20at%20the...%20More%20
+# web: gunicorn Floris_Dent.wsgi  --log-file -
