@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # keep it True for local and False for production
+DEBUG = False  # keep it True for local and False for production.
 
 ALLOWED_HOSTS = ['www.florisdent.ro', '185.179.158.184'] #/ [] on local #  ['127.0.0.1', '.herokuapp.com'] / 'https://www.florisdent.ro' , '185.179.158.184'
 
