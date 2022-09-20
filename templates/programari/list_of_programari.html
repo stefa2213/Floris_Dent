@@ -10,7 +10,7 @@
             <div class="col-md-3">
                 <div class="card"
                      style="width: 23rem; position: fixed; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: lightcyan">
-                    <h2 class="my-h text-center">Filtru Cautare</h2>
+                    <h2 class="my-h text-center">Filtru Căutare</h2>
                     <hr>
                     <form class="my-h" method="get">
                         {{ my_filter.form.as_p }}
@@ -21,7 +21,7 @@
                         </button>
                         <a href="{% url 'list-of-programari' %}" class="btn btn-outline-danger"
                            style="width: 10rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:2px; margin: 2%;">
-                            Sterge Campuri</a>
+                            Șterge Campuri</a>
                     </form>
                 </div>
             </div>
@@ -31,10 +31,10 @@
                     <thead>
                     <tr>
                         <th>Prenume / Nume Pacient</th>
-                        <th>Varsta</th>
+                        <th>Vârstă</th>
                         <th>Telefon</th>
-                        <th>Adresa Email</th>
-                        <th>Ora Programare</th>
+                        <th>Adresă Email</th>
+                        <th>Oră Programare</th>
                         <th>Doctor</th>
                         <th></th>
                     </tr>
@@ -57,12 +57,12 @@
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item"
-                                                   href="{% url 'update-programare' programari.id %}">Modifica</a></li>
+                                                   href="{% url 'update-programare' programari.id %}">Modifică</a></li>
                                             <li>
                                                 <button type="button" class="dropdown-item btn-info"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#programari_{{ programari.id }}">
-                                                    Anuleaza
+                                                    Anulează
                                                 </button>
                                             </li>
                                         </ul>
@@ -76,12 +76,12 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Anuleaza Programarea</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Anulează Programarea</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Esti sigur ca vrei sa anulezi programarea:
+                                        Ești sigur că vrei să anulezi programarea:
                                         "{{ programari.prenume }} {{ programari.nume }}, {{ programari.ora_programare }}"?
                                     </div>
                                     <div class="modal-footer">
@@ -101,7 +101,7 @@
     </div>
     <br><br><br>
     <div class="d-grid gap-2 col-2 mx-auto">
-        <a href="{% url 'list-of-programari-anulate' %}" class="btn btn-primary" type="button">Vezi Programarile Anulate / Arhivate</a>
+        <a href="{% url 'list-of-programari-anulate' %}" class="btn btn-primary" type="button">Vezi Programările Anulate / Arhivate</a>
     </div>
 
 

@@ -44,7 +44,7 @@
             <div class="col-md-3">
                 <div class="card"
                      style="width: 23rem; position: fixed; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: lightcyan">
-                    <h2 class="my-h text-center">Filtru Cautare</h2>
+                    <h2 class="my-h text-center">Filtru Căutare</h2>
                     <hr>
                     <form class="my-h" method="get">
                         {{ my_filter_anulate.form.as_p }}
@@ -55,7 +55,7 @@
                         </button>
                         <a href="{% url 'list-preturi-dezactivate' %}" class="btn btn-outline-danger"
                            style="width: 10rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:2px; margin: 2%;">
-                            Sterge Campuri</a>
+                            Șterge Câmpuri</a>
                     </form>
                 </div>
             </div>
@@ -64,9 +64,9 @@
                     <thead class="table_thead">
                     <tr>
                         <th>Nume serviciu</th>
-                        <th>Pret Serviciu</th>
+                        <th>Preț Serviciu</th>
                         <th>Detalii Serviciu</th>
-                        <th>Durata (minute)</th>
+                        <th>Durată (minute)</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -86,15 +86,15 @@
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item"
-                                                   href="{% url 'update-preturi' pret.id %}">Modifica</a></li>
+                                                   href="{% url 'update-preturi' pret.id %}">Modifică</a></li>
                                             <li><a href="{% url 'activate-pret' pret.id %}"
-                                                   class="dropdown-item btn-danger">Activeaza</a>
+                                                   class="dropdown-item btn-danger">Activează</a>
                                             </li>
                                             <li>
                                                 <button type="button" class="dropdown-item btn-info"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#pret_{{ pret.id }}" style="color: red">
-                                                    Sterge
+                                                    Șterge
                                                 </button>
                                             </li>
                                         </ul>
@@ -107,12 +107,12 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Sterge Serviciu</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Șterge Serviciu</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Esti sigur ca vrei sa stergi serviciul: "{{ pret.nume_serviciu }}"?
+                                            Ești sigur că vrei să ștergi serviciul: "{{ pret.nume_serviciu }}"?
                                         </div>
                                         <div class="modal-footer">
                                             <a href="{% url 'delete-pret-modal' pret.id %}"

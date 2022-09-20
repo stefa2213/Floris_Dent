@@ -60,3 +60,35 @@
 # web: python manage.py runserver 0.0.0.0:5000
 
 # web: gunicorn Floris_Dent.wsgi
+
+
+# tutorial:
+
+# https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application
+# writing the dockfile
+
+# varianta settings.py myapp...
+
+# from django.contrib import admin
+# from django.urls import path, include
+# from django.conf import settings
+# from django.conf.urls.static import static
+# from django.conf.urls import url
+# from django.views.generic.base import TemplateView
+#
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', include('home.urls')),
+#     url(r'^$', TemplateView.as_view(template_name='static_pages/index.html'), name='home'),
+# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# to run venv in myapp:
+
+# cd /home/florisde/virtualenv/myapp/3.9/
+# source bin/activate
+
+# to see all processes
+
+# ps aux

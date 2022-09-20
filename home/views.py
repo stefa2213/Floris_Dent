@@ -8,7 +8,7 @@ from home.filters import MesajeFilters
 from home.forms import MesajForm
 from home.models import Mesaj
 
-import requests
+
 
 
 class HomeTemplateView(TemplateView):
@@ -95,7 +95,7 @@ def sterge_mesaj(request, pk):
     return redirect('list-of-mesaje-arhivate')
 
 
-def index(request):
-    r = requests.get('https://httpbin.org/status/418')
-    print(r.text)
-    return HttpResponse('<pre>' + r.text + '</pre>')
+# def index(request):
+#     r = requests.get('https://httpbin.org/status/418')
+#     print(r.text)
+#     return HttpResponse('<pre>' + r.text + '</pre>')

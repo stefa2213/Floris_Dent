@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os.path
 import os
 from pathlib import Path
-# import environ
+import environ
 
-# env = environ.Env()
-# environ.Env.read_env()
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # from django_filters import rest_framework
 
@@ -26,17 +26,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'my_django_project_florisdent_django-secure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la23232323232323232323'
+SECRET_KEY =  'django-insecure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # keep it True for local and False for production.
+DEBUG = True  # keep it True for local and False for production
 
-ALLOWED_HOSTS = ['www.florisdent.ro', '185.179.158.184'] #/ [] on local #  ['127.0.0.1', '.herokuapp.com'] / 'https://www.florisdent.ro' , '185.179.158.184'
+ALLOWED_HOSTS = []  # 'https://www.florisdent.ro' , '185.179.158.184'
 
 # Application definition
 
 INSTALLED_APPS = [
-    # 'whitenoise.runserver_nostatic',  # for heroku deploy...
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,7 +52,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware', # for heroku deploy...
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,28 +88,18 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db_floris_dent.sqlite3',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'd3pm74fdak4he6',
+        # 'USER': 'dbzhdkvouamgtv',
+        # 'PASSWORD': os.environ['DB_PASSWORD'],
+        # 'HOST': 'ec2-44-207-126-176.compute-1.amazonaws.com',
+        # 'PORT': '5432',
+
     }
 }
 
-# import dj_database_url
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': '<database_name>',
-#         'USER': '<user_name>',
-#         'PASSWORD': '<password>',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
-#
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
-
-# WHITENOISE_USE_FINDERS = True # add for heroku deploy...
-#
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # add for heroku deploy...
+# for deploying...
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -142,15 +130,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-# settings modified for python manage.py --deploy
-
-SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-CSRF_COOKIE_SECURE = True
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_SECONDS = 1
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -164,7 +143,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = (os.path.join(BASE_DIR), 'static')
 
 MEDIA_URL = '/media/'
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'
@@ -178,8 +156,14 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
 DEFAULT_FROM_EMAIL = 'admin@florisdent.ro'
 
-EMAIL_HOST = os.environ.get('EMAIL_HOST')
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = os.environ.get('EMAIL_PORT')
+# EMAIL_HOST = os.environ.get('EMAIL_HOST')
+# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+# EMAIL_PORT = os.environ.get('EMAIL_PORT')
+# EMAIL_USE_SSL = True
+
+EMAIL_HOST = 'mail.florisdent.ro'
+EMAIL_HOST_USER = 'admin@florisdent.ro'
+EMAIL_HOST_PASSWORD = 'Florisdent.ro2213'
+EMAIL_PORT = 465
 EMAIL_USE_SSL = True

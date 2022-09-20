@@ -105,7 +105,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'create-preturi' %}"
-                           title="Vezi preturile clinicii!">Adauga Serviciu</a>
+                           title="Vezi preturile clinicii!">Adaugă Serviciu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'list-of-programari' %}"
@@ -115,7 +115,7 @@
                 {% if perms.doctori.add_doctor %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'create-doctori' %}"
-                           title="Vezi preturile clinicii!">Adauga Doctor</a>
+                           title="Vezi preturile clinicii!">Adaugă Doctor</a>
                     </li>
                 {% endif %}
             </ul>
@@ -126,10 +126,8 @@
                         Salut, Dr. {{ user }}
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <a class="dropdown-item text-center" href="{% url 'logout' %}" class="btn btn-info">Log
-                            out</a>
-                        <li><a class="dropdown-item text-center" href="{% url 'password_change' %}">Change
-                            password</a></li>
+                        <a class="dropdown-item text-center" href="{% url 'logout' %}" class="btn btn-info">Ieși din cont</a>
+                        <li><a class="dropdown-item text-center" href="{% url 'password_change' %}">Schimbă parola</a></li>
                     </ul>
                 </div>
             {% endif %}

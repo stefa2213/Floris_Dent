@@ -18,12 +18,12 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title text-center">{{ doctor.specializare }}</h4>
-                        <p class="card-text text-center">Experienta in domeniu: {{ doctor.experienta }} ani </p>
+                        <p class="card-text text-center">Experiență în domeniu: {{ doctor.experienta }} ani </p>
                         <p class="card-text text-center">Descriere: {{ doctor.descriere }}</p>
                     </div>
                     {% if perms.doctori.change_doctor %}
                         <a href="{% url 'update-doctori' doctor.id %}" class="btn btn-warning"
-                           style="margin: 2px; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; display: flex; justify-content: center">Modifica
+                           style="margin: 2px; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; display: flex; justify-content: center">Modifică
                         </a>
                     {% endif %}
                     {% if perms.doctori.delete_doctor %}
@@ -31,7 +31,7 @@
                                 data-bs-toggle="modal"
                                 data-bs-target="#doctor_sterge_{{ doctor.id }}"
                                 style="margin: 2px; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; display: flex; justify-content: center">
-                            Sterge
+                            Șterge
                         </button>
                     {% endif %}
                 </div>
@@ -41,12 +41,12 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Sterge Doctor</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Șterge Doctor</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Doctorul "{{ doctor.nume_doctor }}" va fi sters. Confirmi?
+                            Doctorul "{{ doctor.nume_doctor }}" va fi șters. Confirmi?
                         </div>
                         <div class="modal-footer">
                             <a href="{% url 'delete-doctor' doctor.id %}" class="btn btn-danger">Da</a>

@@ -10,7 +10,7 @@
             <div class="col-md-3">
                 <div class="card"
                      style="width: 23rem; position: fixed; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: lightcyan">
-                    <h2 class="my-h text-center">Filtru Cautare</h2>
+                    <h2 class="my-h text-center">Filtru Căutare</h2>
                     <hr>
                     <form class="my-h" method="get">
                         {{ my_filter_anulate.form.as_p }}
@@ -31,10 +31,10 @@
                     <thead>
                     <tr>
                         <th>Prenume / Nume Pacient</th>
-                        <th>Varsta</th>
+                        <th>Vârstă</th>
                         <th>Telefon</th>
-                        <th>Adresa Email</th>
-                        <th>Ora Programare</th>
+                        <th>Adresă Email</th>
+                        <th>Oră Programare</th>
                         <th>Doctor</th>
                         <th></th>
                     </tr>
@@ -56,19 +56,19 @@
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item"
-                                               href="{% url 'update-programare' programari.id %}">Modifica</a></li>
+                                               href="{% url 'update-programare' programari.id %}">Modifică</a></li>
                                         <li>
                                             <button type="button" class="dropdown-item btn-info"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#programari_{{ programari.id }}">
-                                                Activeaza
+                                                Activează
                                             </button>
                                         </li>
                                         <li>
                                             <button type="button" class="dropdown-item btn-info"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#programari_sterge{{ programari.id }}" style="color: red">
-                                                Sterge
+                                                Șterge
                                             </button>
                                         </li>
                                     </ul>
@@ -81,14 +81,14 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Anuleaza Programarea</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Anulează Programarea</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Aceasta programare va fi activa din nou:
+                                        Această programare va fi activa din nou:
                                         "{{ programari.prenume }} {{ programari.nume }}, {{ programari.ora_programare }}", apasa
-                                        DA pentru a confirma!
+                                        DA, pentru a confirma!
                                     </div>
                                     <div class="modal-footer">
                                         <a href="{% url 'active-programare' programari.id %}"
@@ -110,9 +110,9 @@
                                                 aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Aceasta programare va fi stearsa:
-                                        "{{ programari.prenume }} {{ programari.nume }}, {{ programari.ora_programare }}", apasa
-                                        DA pentru a confirma!
+                                        Această programare va fi ștearsă:
+                                        "{{ programari.prenume }} {{ programari.nume }}, {{ programari.ora_programare }}", apasă
+                                        DA, pentru a confirma!
                                     </div>
                                     <div class="modal-footer">
                                         <a href="{% url 'delete-programare-modal' programari.id %}"
@@ -131,7 +131,7 @@
     </div>
     <br><br><br>
     <div class="d-grid gap-2 col-2 mx-auto">
-        <a href="{% url 'list-of-programari' %}" class="btn btn-primary" type="button">Vezi Programarile Active</a>
+        <a href="{% url 'list-of-programari' %}" class="btn btn-primary" type="button">Vezi Progrămarile Active</a>
     </div>
 
 
