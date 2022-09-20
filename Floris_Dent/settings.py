@@ -16,7 +16,6 @@ from pathlib import Path
 import dj_database_url
 import django_heroku
 
-
 # env = environ.Env()
 # environ.Env.read_env()
 
@@ -31,7 +30,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la'
-# SECRET_KEY = 'cheiesecretastefan2213'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # keep it True for local and False for production
@@ -106,8 +104,6 @@ DATABASES = {
 
     }
 }
-
-
 
 if "DATABASE_URL" in os.environ:
     # Configure Django for DATABASE_URL environment variable.

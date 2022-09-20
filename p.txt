@@ -55,9 +55,12 @@
 # to see all processes
 # ps aux
 
+# admin - admin2213
 
 # for any change in heroku
 
 # git push for github...
 # and
 # git push heroku master
+
+# run heroku run ... (python manage.py makemigrations) for example
