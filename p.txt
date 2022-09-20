@@ -58,4 +58,6 @@
 
 # for any change in heroku
 
-# git push heroku master ??
+# git push for github...
+# and
+# git push heroku master
