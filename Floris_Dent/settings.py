@@ -12,13 +12,14 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os.path
 import os
 from pathlib import Path
-import environ
+# import environ
+import dj_database_url
 import django_heroku
 
 
+# env = environ.Env()
+# environ.Env.read_env()
 
-env = environ.Env()
-environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # from django_filters import rest_framework
 
@@ -84,6 +85,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Floris_Dent.wsgi.application'
 
+MAX_CONN_AGE = 600
+
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -100,6 +103,17 @@ DATABASES = {
 
     }
 }
+
+
+
+if "DATABASE_URL" in os.environ:
+    # Configure Django for DATABASE_URL environment variable.
+    DATABASES["default"] = dj_database_url.config(
+        conn_max_age=MAX_CONN_AGE, ssl_require=True)
+
+    # Enable test database if found in CI environment.
+    if "CI" in os.environ:
+        DATABASES["default"]["TEST"] = DATABASES["default"]
 
 # for deploying...
 
@@ -158,17 +172,17 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
 DEFAULT_FROM_EMAIL = 'admin@florisdent.ro'
 
-# EMAIL_HOST = os.environ.get('EMAIL_HOST')
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-# EMAIL_PORT = os.environ.get('EMAIL_PORT')
-# EMAIL_USE_SSL = True
-
-EMAIL_HOST = 'mail.florisdent.ro'
-EMAIL_HOST_USER = 'admin@florisdent.ro'
-EMAIL_HOST_PASSWORD = 'Florisdent.ro2213'
-EMAIL_PORT = 465
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
 EMAIL_USE_SSL = True
+
+# EMAIL_HOST = 'mail.florisdent.ro'
+# EMAIL_HOST_USER = 'admin@florisdent.ro'
+# EMAIL_HOST_PASSWORD = 'Florisdent.ro2213'
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
 
 
 django_heroku.settings(locals())

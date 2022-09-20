@@ -38,8 +38,6 @@
 # ===================================================
 #
 # # adauga istoric pacient (daca e timp)
-# # dezactivare serviciu - sa vada doar doctorul pe cele dezactivate
-#
 #
 #
 # # de stilizat page errors
@@ -48,41 +46,6 @@
 # # probleme cu footer-ul, nu sta in josul paginii
 # # trebuie facute foldere separat pentru versiunea web si mobila? se poate face o functie ..sa devina responsive
 #
-#
-# # steps done for deplot the project:
-#
-# # https://alicecampkin.medium.com/how-to-set-up-environment-variables-in-django-f3c4db78c55f#:~:text=%20How%20to%20set
-# %20up%20environment%20variables%20in,file%20already%2C%20create%20one%20at%20the...%20More%20
-
-# for procfile :
-# web: gunicorn gettingstarted.wsgi
-#
-# web: python manage.py runserver 0.0.0.0:5000
-
-# web: gunicorn Floris_Dent.wsgi
-
-
-# tutorial:
-
-# https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application
-# writing the dockfile
-
-# varianta settings.py myapp...
-
-# from django.contrib import admin
-# from django.urls import path, include
-# from django.conf import settings
-# from django.conf.urls.static import static
-# from django.conf.urls import url
-# from django.views.generic.base import TemplateView
-#
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('', include('home.urls')),
-#     url(r'^$', TemplateView.as_view(template_name='static_pages/index.html'), name='home'),
-# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-#
-# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # to run venv in myapp:
 
@@ -90,5 +53,9 @@
 # source bin/activate
 
 # to see all processes
-
 # ps aux
+
+
+# for any change in heroku
+
+# git push heroku master ??
