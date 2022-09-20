@@ -13,6 +13,9 @@ import os.path
 import os
 from pathlib import Path
 import environ
+import django_heroku
+
+
 
 env = environ.Env()
 environ.Env.read_env()
@@ -26,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  'django-insecure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la'
+SECRET_KEY = 'django-insecure-^hs8@9&hy&z!5^wbml9o7kno)nu2b(^5^ax29rchsvk!q*^$la'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # keep it True for local and False for production
@@ -98,7 +101,6 @@ DATABASES = {
     }
 }
 
-
 # for deploying...
 
 # Password validation
@@ -167,3 +169,6 @@ EMAIL_HOST_USER = 'admin@florisdent.ro'
 EMAIL_HOST_PASSWORD = 'Florisdent.ro2213'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
+
+
+django_heroku.settings(locals())
