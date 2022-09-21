@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Despre Clinica FlorisDent {% endblock %}
+
+{% block content %}
+    <style>
+        .b_succes {
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            color: black;
+            text-decoration: none;
+            border-radius: 25px;
+            padding-right: 5px;
+            padding-left: 5px;
+            padding-bottom: 2px;
+            background: #e0ffff;
+        }
+    </style>
+
+    <h1 class="my_header text-center" style="color: black">Programare înregistrata cu succes</h1>
+    <h4 class="my_header text-center" style="font-size: large; color: black"> Te vom contacta în cel mai scurt timp pentru confirmare.</h4>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <a type="button b_succes" href="{% url 'locatie' %}" title="Vezi cum sa ajungi la noi!" class="btn btn-info btn-lg"
+                   style="margin: 4%; width: 10%; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">Vezi Locație</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

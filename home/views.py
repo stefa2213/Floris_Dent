@@ -9,8 +9,6 @@ from home.forms import MesajForm
 from home.models import Mesaj
 
 
-
-
 class HomeTemplateView(TemplateView):
     template_name = 'home/home.html'
 
@@ -77,6 +75,10 @@ class MsgSuccessTemplateView(TemplateView):
     template_name = 'home/create_mesaj_succes.html'
 
 
+class ProgramareSuccessTemplateView(TemplateView):
+    template_name = 'home/programare_succes.html'
+
+
 @permission_required('mesaj.change_mesaj')
 def rezolvare_mesaj(request, pk):
     Mesaj.objects.filter(id=pk).update(active=False)
@@ -93,7 +95,6 @@ def nerezolvare_mesaj(request, pk):
 def sterge_mesaj(request, pk):
     Mesaj.objects.filter(id=pk).delete()
     return redirect('list-of-mesaje-arhivate')
-
 
 # def index(request):
 #     r = requests.get('https://httpbin.org/status/418')

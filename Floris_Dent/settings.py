@@ -164,8 +164,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #varianta prin consola
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # use 'filebased' or 'smtp' ...
-EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # use 'filebased' or 'smtp' ...
+# EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
 # SMTP = simple mail transfer protocol - un protocol folosit pentru timiterea de emailuri
