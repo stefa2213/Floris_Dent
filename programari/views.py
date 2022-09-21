@@ -1,4 +1,7 @@
 import datetime
+import smtplib
+import os
+
 from django.utils import timezone
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -22,8 +25,14 @@ class ProgramariCreateView(CreateView):
 
     def form_valid(self, form):
         if form.is_valid() and not form.errors:
-            connection = get_connection()
-            connection.open()
+            #varianta SO
+
+            # server = smtplib.SMTP(os.environ.get('EMAIL_HOST'))
+            # server.starttls()
+            # server.login(os.environ.get('EMAIL_HOST_USER'), os.environ.get('EMAIL_HOST_PASSWORD'))
+
+            # ----
+
             noua_programare = form.save()
             subject = 'O noua programare la FlorisDent'
 
@@ -37,7 +46,10 @@ class ProgramariCreateView(CreateView):
             send_mail(subject, message, EMAIL_HOST_USER, [noua_programare.doctor.email],
                       html_message=my_html_message_doctor)
 
-            connection.close()
+            # ----
+            # server.quit()
+            # ----
+
             return redirect('locatie')
 
 
