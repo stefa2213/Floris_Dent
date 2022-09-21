@@ -2,7 +2,7 @@ import datetime
 from django.utils import timezone
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.mail import send_mail
+from django.core.mail import send_mail, get_connection
 from django.shortcuts import redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
@@ -22,6 +22,8 @@ class ProgramariCreateView(CreateView):
 
     def form_valid(self, form):
         if form.is_valid() and not form.errors:
+            connection = get_connection()
+            connection.open()
             noua_programare = form.save()
             subject = 'O noua programare la FlorisDent'
 
@@ -35,6 +37,7 @@ class ProgramariCreateView(CreateView):
             send_mail(subject, message, EMAIL_HOST_USER, [noua_programare.doctor.email],
                       html_message=my_html_message_doctor)
 
+            connection.close()
             return redirect('locatie')
 
 
