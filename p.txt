@@ -56,6 +56,10 @@
 # ps aux
 
 # admin - admin2213
+# florentina - admin1404
+
+# to restart the app on heroku
+# heroku restart -a florisdent
 
 # for any change in heroku
 
