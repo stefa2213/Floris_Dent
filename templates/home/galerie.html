@@ -6,6 +6,13 @@
 {% block content %}
 
     <style>
+
+        @media (max-width: 600px) {
+            .galerie {
+                width: 10%;
+            }
+        }
+
         .galerie {
             margin: 5%;
             width: 90%;
@@ -34,11 +41,13 @@
         .modal-content {
             border: 15px;
             border-radius: 15px;
+            max-width: fit-content;
         }
 
         .modal-dialog {
             position: relative;
-            min-width: 80rem;
+            min-width: 70rem;
+            max-width: fit-content;
             background: rgb(252, 252, 252);
             background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
         }
