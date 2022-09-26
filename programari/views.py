@@ -25,23 +25,23 @@ class ProgramariCreateView(CreateView):
 
 # daca vrem sa trimitem mail .. nu merge pe Heroku
 
-    # def form_valid(self, form):
-    #     if form.is_valid() and not form.errors:
-    #
-    #         noua_programare = form.save()
-    #         subject = 'O noua programare la FlorisDent'
-    #
-    #         message = None
-    #         my_html_message = render_to_string('email/email_programare.html', {'details_user': noua_programare})
-    #         my_html_message_doctor = render_to_string('email/email_programare_doctor.html',
-    #                                                   {'details_user': noua_programare})
-    #         send_mail(subject, message, EMAIL_HOST_USER,
-    #                   [noua_programare.email],
-    #                   html_message=my_html_message)  # folosim lista la email chiar daca e unul singur
-    #         send_mail(subject, message, EMAIL_HOST_USER, [noua_programare.doctor.email],
-    #                   html_message=my_html_message_doctor)
-    #
-    #         return redirect('locatie')
+    def form_valid(self, form):
+        if form.is_valid() and not form.errors:
+
+            noua_programare = form.save()
+            subject = 'O noua programare la FlorisDent'
+
+            message = None
+            my_html_message = render_to_string('email/email_programare.html', {'details_user': noua_programare})
+            my_html_message_doctor = render_to_string('email/email_programare_doctor.html',
+                                                      {'details_user': noua_programare})
+            send_mail(subject, message, EMAIL_HOST_USER,
+                      [noua_programare.email],
+                      html_message=my_html_message)  # folosim lista la email chiar daca e unul singur
+            send_mail(subject, message, EMAIL_HOST_USER, [noua_programare.doctor.email],
+                      html_message=my_html_message_doctor)
+
+            return redirect('locatie')
 
 
 class ProgramareListView(LoginRequiredMixin, ListView):
