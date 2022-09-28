@@ -7,13 +7,6 @@
 
     <style>
 
-        @media screen and (max-width: 600px) {
-            .galerie {
-                width: 10%;
-                padding: 3rem;
-            }
-        }
-
         .galerie {
             margin: 5%;
             width: 90%;
@@ -47,10 +40,22 @@
 
         .modal-dialog {
             position: relative;
-            min-width: 70rem;
+            min-width: 60rem;
             max-width: fit-content;
             background: rgb(252, 252, 252);
             background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+        }
+
+        @media only screen and (max-width: 500px) {
+            .modal-dialog {
+                height: 20rem;
+                max-width: fit-content;
+            }
+
+            .galerie_img {
+                width: 100%;
+                height: 100%;
+            }
         }
 
         .modal-body {
@@ -67,7 +72,7 @@
     </style>
 
     <body style="background-image:url('{% static 'images/tooth.jpg' %}');
-background-size: cover"></body>
+            background-size: cover"></body>
     <h1 class="my_header text-center">Galerie Clinica FlorisDent</h1>
 
     <div class="row" style="margin: 2%;">
@@ -168,7 +173,7 @@ background-size: cover"></body>
 
 
         <div class="col-sm-6">
-               <a type="button" class="card galerie" data-bs-toggle="modal" data-bs-target="#myModal_aparatura_v"
+            <a type="button" class="card galerie" data-bs-toggle="modal" data-bs-target="#myModal_aparatura_v"
                title="Apasa pentru a mari imaginea."><img
                     src="{% static 'images/cabinet/aparatura_v.jpg' %}"></a>
         </div>
