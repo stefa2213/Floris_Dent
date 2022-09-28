@@ -2,9 +2,9 @@
 
 <style>
 
-    #navbar-brand{
-        margin: 1rem;
-        margin-right: 3rem;
+    #navbar-brand {
+        margin-bottom: 5px;
+        padding-bottom: 5px;
     }
 
     .navbar {
@@ -14,14 +14,13 @@
 
 
     .nav-item {
-        display: inline;
-        float: left;
         font-weight: bold;
+        font-size: small;
         font-family: "Microsoft Sans Serif";
         margin: 1px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         color: black;
-        border-radius: 25px;
+        border-radius: 20px;
 
     }
 
@@ -35,10 +34,39 @@
     }
 
     .b_user:hover {
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        box-shadow: #D4B6DEFF -3px -5px 5px;
         border-radius: 25px;
         background: rgb(252, 252, 252);
         background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
+    .b_doctor {
+        border-radius: 25px;
+        font-family: "Microsoft Sans Serif";
+        margin-top: 5px;
+    }
+
+    .b_doctor:hover {
+        box-shadow: #D4B6DEFF -3px -5px 5px;
+        border-radius: 25px;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
+    .item-dd {
+        background-color: #e0ffff;
+        font-size: small;
+        font-weight: bold;
+        border-radius: 23px;
+        margin: 2px;
+    }
+
+    .dd-menu {
+        background-color: #e0ffff;
+        border-color: #e0ffff;
+        border-radius: 15px;
+        margin-top: 0;
+        float: left;
     }
 
 </style>
@@ -48,16 +76,15 @@
     <div class="container-fluid">
         <a id="navbar-brand" class="navbar-brand" href="{% url 'home' %}" title="Prima Pagina FlorisDent">
             <img src="{% static 'images/florisdent_logo.svg' %}"
-                 style="height: 2rem;">
+                 style="height: 1.6rem;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-    <br>
+        <br>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'list-preturi' %}"
                        title="Vezi serviciile noastre!">Servicii</a>
@@ -68,7 +95,7 @@
                 </li>
                 <li class="nav-item d-flex">
                     <a class="nav-link active" aria-current="page" href="{% url 'locatie' %}"
-                       title="Vezi unde ne gasesti in Constanta">Localizare
+                       title="Vezi unde ne gasesti in Constanta">Locatie
                     </a>
                 </li>
                 <li class="nav-item d-flex">
@@ -87,11 +114,11 @@
                         border-radius: 25px; background: rgb(252,252,252); background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,155,255,1) 90%);">
                         Programare
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item"
+                    <ul class="dropdown-menu dd-menu">
+                        <li class="nav-item"><a class="dropdown-item item-dd"
                                href="https://api.whatsapp.com/send?phone=+40736407327&text=Buna ziua, as dori o programare, ma puteti ajuta?"
                                title="Contacteaza-ne prin What's App">Telefonic / WhatsApp</a></li>
-                        <li><a class="dropdown-item" href="{% url 'create-programare' %}"
+                        <li class="nav-item"><a class="dropdown-item item-dd" href="{% url 'create-programare' %}"
                                title="Programeaza-te cu formularul nostru!">Formular programare</a></li>
                     </ul>
                 </li>
@@ -101,35 +128,47 @@
                     <img src="{% static 'images/wapp.png' %}" style="height: 25px; padding-top: 1px">
                 </a>
                 {% if user.is_authenticated %}
+                    <div class="dropdown">
+                    <button class="btn b_doctor dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Meniu Doctor
+                    </button>
+                    <ul class="dropdown-menu dd-menu">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'list-of-mesaje' %}"
+                        <a class="dropdown-item text-center item-dd" aria-current="page" href="{% url 'list-of-mesaje' %}"
                            title="Vezi preturile clinicii!">Vezi Mesaje</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'create-preturi' %}"
+                        <a class="dropdown-item text-center item-dd" aria-current="page" href="{% url 'create-preturi' %}"
                            title="Vezi preturile clinicii!">Adaugă Serviciu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'list-of-programari' %}"
+                        <a class="dropdown-item text-center item-dd" aria-current="page" href="{% url 'list-of-programari' %}"
                            title="Vezi preturile clinicii!">Programarile Mele</a>
                     </li>
                 {% endif %}
+
                 {% if perms.doctori.add_doctor %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'create-doctori' %}"
+                        <a class="dropdown-item text-center item-dd" aria-current="page" href="{% url 'create-doctori' %}"
                            title="Vezi preturile clinicii!">Adaugă Doctor</a>
                     </li>
                 {% endif %}
+                </ul>
+                </div>
             </ul>
             {% if user.is_authenticated %}
                 <div class="dropdown">
                     <button class="btn b_user dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                        Salut, Dr. {{ user }}
+                        Salut, {{ user }}
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <a class="dropdown-item text-center" href="{% url 'logout' %}" class="btn btn-info">Ieși din cont</a>
-                        <li><a class="dropdown-item text-center" href="{% url 'password_change' %}">Schimbă parola</a></li>
+                    <ul class="dropdown-menu dd-menu">
+                        <li class="nav-item">
+                        <a class="dropdown-item text-center item-dd" href="{% url 'logout' %}" class="btn btn-info">Ieși din
+                            cont</a></li>
+                        <li class="nav-item"><a class="dropdown-item text-center item-dd" href="{% url 'password_change' %}">Schimbă parola</a>
+                        </li>
                     </ul>
                 </div>
             {% endif %}
