@@ -4,15 +4,60 @@
         opacity: 0.8;
     }
 
+    .footer-brand:active {
+        opacity: 0.7;
+    }
+
     .page-footer {
         border-radius: 3px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px -10px 20px;
+    }
 
+    .contact-button {
+        font-weight: bold;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        color: black;
+        text-decoration: none;
+        border-radius: 25px;
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-bottom: 2px;
+        background: #e0ffff;
+    }
+
+    .contact-button:hover {
+        box-shadow: #D4B6DEFF -3px -3px 3px;
+        color: darkblue;
+    }
+
+    .contact-button:active {
+        color: black;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
+    .site-address {
+        color: black;
+        font-weight: bold;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        text-decoration: none;
+        border-radius: 25px; padding-right: 5px;
+        padding-left: 5px;
+        background: rgb(252,252,252);
+        background:linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,155,255,1) 90%);
     }
 
     .site-address:hover {
-        opacity: 0.8;
         box-shadow: #D4B6DEFF -3px -5px 5px;
+        color: black;
+    }
+
+    .site-address:active {
+        color: blue;
+    }
+
+    .c-right {
+        margin-top: 2rem;
     }
 
 </style>
@@ -24,15 +69,22 @@
         <div class="row">
             <div class="col-md-6 mt-md-0 mt-3">
                 <h5 class="text" style="font-weight: bold;">CLINICA FlorisDent</h5>
-                <p>Te așteptam la Clinica FlorisDent.
+                <p>Te așteptăm la Clinica FlorisDent.
                     Fă-ți repede o programare!</p>
             </div>
             <hr class="clearfix w-100 d-md-none pb-3">
             <div class="col-md-3 mb-md-0 mb-3">
                 <h5 class="text-uppercase" style="font-weight: bold;">Contact</h5>
                 <ul class="list-unstyled">
-                    <li>
-                        <p href="" style="text-decoration: none; color: black"> TELEFON: 0723751346</p>
+                    <li style="display: block">
+                        <p style="font-weight: bold; font-size: small; padding-bottom: 0rem; margin: 0 padding-top: 0.2rem">
+                            TELEFON:</p>
+                        <a type="button" class="footer-brand contact-button" href="tel:+40736407327"
+                           title="Apelează-ne!" style="margin-top: 0rem; margin-bottom: 2rem">
+                            0736407327</a> /
+                        <a type="button" class="footer-brand contact-button" href="tel:+40723751346"
+                           title="Apelează-ne!">
+                            0723751346</a>
                     </li>
                     <li>
                         <a class="footer-brand" href="{% url 'locatie' %}" title="Vezi pe harta!">
@@ -44,16 +96,15 @@
                         </p>
                     </li>
                     <li>
-                        <a type="button" class="footer-brand" href="{% url 'create-mesaj' %}" title="Scrie-ne!"
-                           style="font-weight: bold; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; color: black;
-        text-decoration: none; border-radius: 25px; padding-right: 5px; padding-left: 5px; padding-bottom: 2px;
-        background: #e0ffff;">
+                        <a type="button" class="footer-brand contact-button" href="{% url 'create-mesaj' %}"
+                           title="Scrie-ne!">
                             Contactează-ne!</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-3 mb-md-0 mb-3">
                 <h5 class="text-uppercase" style="font-weight: bold;">Social Media</h5>
+                <br>
                 <ul class="list-unstyled">
                     <li>
                         <a class="footer-brand " href="https://www.facebook.com" title="Mergi pe pagina de Facebook">
@@ -77,14 +128,11 @@
         </div>
     </div>
     <br><br><br><br>
-    <div class="footer-copyright text-center gy-3"
+    <div class="footer-copyright text-center gy-4 c-right"
          style=" background-color: #e0ffff; height: 130px; padding-top: 100px">©
         2022 Clinica
         FlorisDent:
-        <a class="site-address" href="https:\\florisdent.ro" style="font-weight: bold; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; color: black;
-        text-decoration: none; border-radius: 25px; padding-right: 5px; padding-left: 5px; padding-bottom: 2px;
-        background: rgb(252,252,252); background:
-        linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,155,255,1) 90%);">florisdent.ro</a>
+        <a class="site-address" href="https:\\florisdent.ro" style="">florisdent.ro</a>
     </div>
     <br>
 </footer>
