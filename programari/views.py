@@ -9,7 +9,7 @@ from django.core.mail import send_mail, get_connection
 from django.shortcuts import redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DetailView
 
 from Floris_Dent.settings import EMAIL_HOST_USER
 from programari.filters import ProgramariFilters
@@ -23,11 +23,10 @@ class ProgramariCreateView(CreateView):
     form_class = ProgramariForm
     success_url = reverse_lazy('programare-succes')
 
-# daca vrem sa trimitem mail .. nu merge pe Heroku
+    # daca vrem sa trimitem mail .. nu merge pe Heroku
 
     def form_valid(self, form):
         if form.is_valid() and not form.errors:
-
             noua_programare = form.save()
             subject = 'O noua programare la FlorisDent'
 
@@ -55,8 +54,9 @@ class ProgramareListView(LoginRequiredMixin, ListView):
         all_programari = Programari.objects.all()
 
         for programare in all_programari:
-            if programare.ora_programare < timezone.make_aware(datetime.datetime.now(), timezone.get_default_timezone()):
-                programare.active=False
+            if programare.ora_programare < timezone.make_aware(datetime.datetime.now(),
+                                                               timezone.get_default_timezone()):
+                programare.active = False
                 programare.save()
 
         data['programari'] = all_programari
@@ -84,6 +84,11 @@ class ProgramareListViewAnulate(LoginRequiredMixin, ListView):
         data['my_filter_anulate'] = my_filter_
 
         return data
+
+
+class ProgramariDetailView(LoginRequiredMixin, DetailView):
+    template_name = 'programari/detail_programari.html'
+    model = Programari
 
 
 class ProgramariUpdateView(LoginRequiredMixin, UpdateView):

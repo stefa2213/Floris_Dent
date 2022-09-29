@@ -30,10 +30,9 @@
                 <table class="table table-striped table-hover">
                     <thead>
                     <tr>
-                        <th>Prenume / Nume Pacient</th>
+                        <th>Nume Pacient</th>
                         <th>Vârstă</th>
                         <th>Telefon</th>
-                        <th>Adresă Email</th>
                         <th>Oră Programare</th>
                         <th>Doctor</th>
                         <th></th>
@@ -46,7 +45,6 @@
                                 <td>{{ programari.prenume }}, {{ programari.nume }}</td>
                                 <td>{{ programari.varsta }}</td>
                                 <td>{{ programari.numar_telefon }}</td>
-                                <td>{{ programari.email }}</td>
                                 <td>{{ programari.ora_programare }}</td>
                                 <td>{{ programari.doctor }}</td>
                                 <td>
@@ -57,11 +55,14 @@
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item"
+                                                   href="{% url 'detail-programare' programari.id %}">Vizualizează</a></li>
+                                            <li>
+                                            <li><a class="dropdown-item"
                                                    href="{% url 'update-programare' programari.id %}">Modifică</a></li>
                                             <li>
                                                 <button type="button" class="dropdown-item btn-info"
                                                         data-bs-toggle="modal"
-                                                        data-bs-target="#programari_{{ programari.id }}">
+                                                        data-bs-target="#programari_{{ programari.id }}" style="color: red">
                                                     Anulează
                                                 </button>
                                             </li>

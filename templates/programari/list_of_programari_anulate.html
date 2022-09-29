@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card"
-                    style="width: 18rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: lightcyan">
+                     style="width: 18rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: lightcyan">
                     <h2 class="my-h text-center">Filtru Căutare</h2>
                     <hr>
                     <form class="my-h" method="get">
@@ -30,10 +30,9 @@
                 <table class="table table-striped table-hover">
                     <thead>
                     <tr>
-                        <th>Prenume / Nume Pacient</th>
+                        <th>Nume Pacient</th>
                         <th>Vârstă</th>
                         <th>Telefon</th>
-                        <th>Adresă Email</th>
                         <th>Oră Programare</th>
                         <th>Doctor</th>
                         <th></th>
@@ -45,7 +44,6 @@
                             <td>{{ programari.prenume }}, {{ programari.nume }}</td>
                             <td>{{ programari.varsta }}</td>
                             <td>{{ programari.numar_telefon }}</td>
-                            <td>{{ programari.email }}</td>
                             <td>{{ programari.ora_programare }}</td>
                             <td>{{ programari.doctor }}</td>
                             <td>
@@ -55,6 +53,9 @@
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item"
+                                               href="{% url 'detail-programare' programari.id %}">Vizualizează</a></li>
+                                        <li>
                                         <li><a class="dropdown-item"
                                                href="{% url 'update-programare' programari.id %}">Modifică</a></li>
                                         <li>
@@ -67,7 +68,8 @@
                                         <li>
                                             <button type="button" class="dropdown-item btn-info"
                                                     data-bs-toggle="modal"
-                                                    data-bs-target="#programari_sterge{{ programari.id }}" style="color: red">
+                                                    data-bs-target="#programari_sterge{{ programari.id }}"
+                                                    style="color: red">
                                                 Șterge
                                             </button>
                                         </li>
@@ -87,7 +89,8 @@
                                     </div>
                                     <div class="modal-body">
                                         Această programare va fi activa din nou:
-                                        "{{ programari.prenume }} {{ programari.nume }}, {{ programari.ora_programare }}", apasa
+                                        "{{ programari.prenume }} {{ programari.nume }}, {{ programari.ora_programare }}",
+                                        apasa
                                         DA, pentru a confirma!
                                     </div>
                                     <div class="modal-footer">
@@ -111,7 +114,8 @@
                                     </div>
                                     <div class="modal-body">
                                         Această programare va fi ștearsă:
-                                        "{{ programari.prenume }} {{ programari.nume }}, {{ programari.ora_programare }}", apasă
+                                        "{{ programari.prenume }} {{ programari.nume }}, {{ programari.ora_programare }}",
+                                        apasă
                                         DA, pentru a confirma!
                                     </div>
                                     <div class="modal-footer">

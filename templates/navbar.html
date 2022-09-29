@@ -8,8 +8,12 @@
     }
 
     .navbar {
-        border-radius: 5px;
+        border-radius: 3px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 12px 20px;
+        width: 100%;
+        float: left;
+        margin: 0 0 1em 0;
+        padding: 0;
     }
 
 
@@ -25,7 +29,14 @@
     }
 
     .nav-item:hover {
-        box-shadow: #D4B6DEFF -3px -5px 5px;
+        box-shadow: #D4B6DEFF -3px -3px 3px;
+        opacity: 1;
+    }
+
+    .nav-item:active {
+        color: black;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
     }
 
     .b_user {
@@ -53,6 +64,12 @@
         background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
     }
 
+    .b_doctor:active {
+        color: black;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
     .item-dd {
         background-color: #e0ffff;
         font-size: small;
@@ -61,9 +78,20 @@
         margin: 2px;
     }
 
+    .item-dd:hover {
+        color: darkblue;
+    }
+
+    .item-dd:active {
+        color: black;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
     .dd-menu {
         background-color: #e0ffff;
         border-color: #e0ffff;
+        height: 0.5rem;
         border-radius: 15px;
         margin-top: 0;
         float: left;
@@ -105,7 +133,7 @@
                 </li>
                 <li class="nav-item d-flex">
                     <a class="nav-link active" aria-current="page" href="{% url 'galerie' %}"
-                       title="Contacteaza-ne!">Galerie
+                       title="Vezi Galeria FlorisDent!">Galerie
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -116,10 +144,11 @@
                     </a>
                     <ul class="dropdown-menu dd-menu">
                         <li class="nav-item"><a class="dropdown-item item-dd"
-                               href="https://api.whatsapp.com/send?phone=+40736407327&text=Buna ziua, as dori o programare, ma puteti ajuta?"
-                               title="Contacteaza-ne prin What's App">Telefonic / WhatsApp</a></li>
+                                                href="https://api.whatsapp.com/send?phone=+40736407327&text=Buna ziua, as dori o programare, ma puteti ajuta?"
+                                                title="Contacteaza-ne prin What's App">Telefonic / WhatsApp</a></li>
                         <li class="nav-item"><a class="dropdown-item item-dd" href="{% url 'create-programare' %}"
-                               title="Programeaza-te cu formularul nostru!">Formular programare</a></li>
+                                                title="Programeaza-te prin formularul nostru!">Formular programare</a>
+                        </li>
                     </ul>
                 </li>
                 <a class="navbar-brand"
@@ -130,28 +159,38 @@
                 {% if user.is_authenticated %}
                     <div class="dropdown">
                     <button class="btn b_doctor dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                            aria-expanded="false" title="Vezi Meniul Doctorului">
                         Meniu Doctor
                     </button>
                     <ul class="dropdown-menu dd-menu">
                     <li class="nav-item">
-                        <a class="dropdown-item text-center item-dd" aria-current="page" href="{% url 'list-of-mesaje' %}"
-                           title="Vezi preturile clinicii!">Vezi Mesaje</a>
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'list-of-programari' %}"
+                           title="Vezi programarile!">Programari</a>
                     </li>
                     <li class="nav-item">
-                        <a class="dropdown-item text-center item-dd" aria-current="page" href="{% url 'create-preturi' %}"
-                           title="Vezi preturile clinicii!">Adaugă Serviciu</a>
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'list-of-programari' %}"
+                           title="Vezi pacienții clinicii!">Pacienți</a>
                     </li>
                     <li class="nav-item">
-                        <a class="dropdown-item text-center item-dd" aria-current="page" href="{% url 'list-of-programari' %}"
-                           title="Vezi preturile clinicii!">Programarile Mele</a>
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'list-of-mesaje' %}"
+                           title="Vezi mesajele!">Mesaje</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'create-preturi' %}"
+                           title="Adauga un serviciu!">Adaugă Serviciu</a>
+                    </li>
+
                 {% endif %}
 
                 {% if perms.doctori.add_doctor %}
                     <li class="nav-item">
-                        <a class="dropdown-item text-center item-dd" aria-current="page" href="{% url 'create-doctori' %}"
-                           title="Vezi preturile clinicii!">Adaugă Doctor</a>
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'create-doctori' %}"
+                           title="Vezi un doctor!">Adaugă Doctor</a>
                     </li>
                 {% endif %}
                 </ul>
@@ -165,9 +204,10 @@
                     </button>
                     <ul class="dropdown-menu dd-menu">
                         <li class="nav-item">
-                        <a class="dropdown-item text-center item-dd" href="{% url 'logout' %}" class="btn btn-info">Ieși din
-                            cont</a></li>
-                        <li class="nav-item"><a class="dropdown-item text-center item-dd" href="{% url 'password_change' %}">Schimbă parola</a>
+                            <a class="dropdown-item text-center item-dd" href="{% url 'logout' %}" class="btn btn-info">Ieși
+                                din cont</a></li>
+                        <li class="nav-item"><a class="dropdown-item text-center item-dd"
+                                                href="{% url 'password_change' %}">Schimbă parola</a>
                         </li>
                     </ul>
                 </div>
