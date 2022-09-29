@@ -53,14 +53,14 @@
                                                 role="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                         </button>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item"
+                                        <ul class="dropdown-menu dd-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item item-dd"
                                                    href="{% url 'detail-programare' programari.id %}">Vizualizează</a></li>
                                             <li>
-                                            <li><a class="dropdown-item"
+                                            <li><a class="dropdown-item item-dd"
                                                    href="{% url 'update-programare' programari.id %}">Modifică</a></li>
                                             <li>
-                                                <button type="button" class="dropdown-item btn-info"
+                                                <button type="button" class="dropdown-item btn-info item-dd"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#programari_{{ programari.id }}" style="color: red">
                                                     Anulează

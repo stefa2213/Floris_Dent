@@ -84,14 +84,14 @@
                                                 role="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                         </button>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item"
+                                        <ul class="dropdown-menu dd-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item item-dd"
                                                    href="{% url 'update-preturi' pret.id %}">Modifică</a></li>
                                             <li><a href="{% url 'activate-pret' pret.id %}"
-                                                   class="dropdown-item btn-danger">Activează</a>
+                                                   class="dropdown-item btn-danger item-dd">Activează</a>
                                             </li>
                                             <li>
-                                                <button type="button" class="dropdown-item btn-info"
+                                                <button type="button" class="dropdown-item btn-info item-dd"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#pret_{{ pret.id }}" style="color: red">
                                                     Șterge
@@ -133,7 +133,7 @@
     <br><br><br>
     {% if user.is_authenticated %}
         <div class="d-grid gap-2 col-2 mx-auto">
-            <a href="{% url 'list-preturi' %}" class="btn btn-primary" type="button">Servicii
+            <a href="{% url 'list-preturi' %}" class="btn btn-primary " type="button">Servicii
                 Active</a>
         </div>
     {% endif %}

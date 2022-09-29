@@ -31,8 +31,18 @@
         }
 
         .table-hover {
-        {#font-weight: bold;#} color: darkblue;
+            color: darkblue;
             opacity: 0.8;
+        }
+
+        .item-dd {
+            background-color: white;
+        }
+
+        .item-dd:active {
+            color: black;
+            background: rgb(252, 252, 252);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
         }
 
     </style>
@@ -50,7 +60,7 @@
                         {{ my_filter.form.as_p }}
                         <hr>
                         <button type="submit" class="btn btn-success mx-auto"
-                                 style="display:grid; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  margin: 3%;">
+                                style="display:grid; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  margin: 3%;">
                             Cauta
                         </button>
                         <a href="{% url 'list-preturi' %}" class="btn btn-outline-danger mx-auto"
@@ -61,7 +71,7 @@
             </div>
             <div class="col-md-6">
                 <table class="table table-light table-hover" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
-                    <thead class="table_thead" >
+                    <thead class="table_thead">
                     <tr>
                         <th>Nume serviciu</th>
                         <th>Preț Serviciu</th>
@@ -87,11 +97,11 @@
                                                     role="button"
                                                     data-bs-toggle="dropdown" aria-expanded="false">
                                             </button>
-                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li><a class="dropdown-item"
+                                            <ul class="dropdown-menu dd-menu" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item item-dd"
                                                        href="{% url 'update-preturi' pret.id %}">Modifică</a></li>
                                                 <li>
-                                                    <button type="button" class="dropdown-item btn-info"
+                                                    <button type="button" class="dropdown-item btn-info item-dd"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#pret_{{ pret.id }}" style="color: red">
                                                         Șterge
@@ -99,10 +109,11 @@
                                                 </li>
                                                 {% if pret.active is True %}
                                                     <li><a href="{% url 'deactivate-pret' pret.id %}"
-                                                           class="dropdown-item btn-danger">Dezactivează</a></li>
+                                                           class="dropdown-item btn-danger item-dd">Dezactivează</a>
+                                                    </li>
                                                 {% elif pret.active is False %}
                                                     <li><a href="{% url 'activate-pret' pret.id %}"
-                                                           class="dropdown-item btn-info>">Activează</a></li>
+                                                           class="dropdown-item btn-info> item-dd">Activează</a></li>
                                                 {% endif %}
                                             </ul>
                                         </li>
@@ -114,7 +125,8 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Șterge Serviciu</h5>
+                                                    <h5 class="modal-title item-dd" id="exampleModalLabel">Șterge
+                                                        Serviciu</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                 </div>
