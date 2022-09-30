@@ -4,12 +4,33 @@
 {% block title %} Locatia Clinicii Noastre {% endblock %}
 
 {% block content %}
+    <style>
+
+        .card-contact {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            width: auto;
+            background-color: transparent;
+            border-color: transparent;
+            display: block;
+            padding: 3rem;
+            justify-content: center;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+        }
+
+        .h-contact {
+            font-size: x-large;
+            text-shadow: #f3d7fa 1px 2px 3px;
+
+        }
+
+    </style>
     <h1 class="my_header text-center">Contact</h1>
     <br>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 offset-md-3"><br><br>
-                <div class="card" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; background-color: aliceblue">
+                <div class="card" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; background-color: transparent">
                     <div class="card-header">
                         <h3 class="text-center">Scrie-ne prin formular!</h3>
                     </div>
@@ -30,25 +51,42 @@
                 <br><br>
             </div>
 
-            <div class="col-md-6 offset-md-3">
-                <div class="card" style="display: flex; justify-content: center;
-                     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:50px; margin-top: 10%; margin-bottom: 5%; width:100%; background-color: aliceblue">
-                    <div class="card-header" style="background-color: aliceblue">
-                        <h3 class="text-center">Scrie-ne pe WhatsApp!</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card card-contact">
+                            <div class="card-header" style="background-color: transparent; border-color: transparent">
+                                <h3 class="text-center h-contact">Apelează-ne!</h3>
+                            </div>
+                            <a class="logo_telephone"
+                               style="height: 8rem; padding-top: 1px; display: flex; justify-content: center"
+                               href="tel:+40736407327"
+                               title="Apelează-ne!">
+                                <img src="{% static 'images/telephone.svg' %}">
+                            </a>
+                        </div>
                     </div>
-                    <a class="logo_wapp" style="height: 300px; padding-top: 1px; display: flex; justify-content: center"
-                       href="https://api.whatsapp.com/send?phone=+40736407327&text=Buna ziua, as dori o programare va rog!"
-                       title="Contacteaza-ne prin WhatsApp">
-                        <img src="https://www.freeiconspng.com/thumbs/logo-whatsapp-png/logo-whatsapp-png-file-15.png">
-                    </a>
+                    <div class="col-sm-6">
+                        <div class="card card-contact">
+                            <div class="card-header" style="background-color: transparent; border-color: transparent">
+                                <h3 class="text-center h-contact">Scrie-ne pe WhatsApp!</h3>
+                            </div>
+                            <a class="logo_wapp"
+                               style="height: 8rem; padding-top: 1px; display: flex; justify-content: center"
+                               href="https://api.whatsapp.com/send?phone=+40736407327&text=Buna ziua, as dori o programare va rog!"
+                               title="Contacteaza-ne prin WhatsApp">
+                                <img src="{% static 'images/wapp.png' %}">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="col-md-6 offset-md-3">
                 <div class="card"
-                     style="display: flex; justify-content: center;
-                     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:50px; margin-top: 10%; margin-bottom: 10%; width:100%; background-color: aliceblue">
-                    <div class="card-header" style="background-color: aliceblue">
+                     style="display: flex; justify-content: center; background-color: transparent;
+                     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:50px; margin-top: 10%; margin-bottom: 10%; width:100%;">
+                    <div class="card-header" style="background-color: transparent">
                         <h3 class="text-center">Adresa Clinicii FlorisDent:</h3>
                     </div>
                     <div class="card-body">
