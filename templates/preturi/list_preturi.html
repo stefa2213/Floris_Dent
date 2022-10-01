@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} Lista de preturi {% endblock %}
+{% block title %} Lista de prețuri {% endblock %}
 
 
 {% block content %}
@@ -32,7 +32,7 @@
 
         .table-hover {
             color: darkblue;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         .item-dd {
@@ -47,7 +47,7 @@
 
     </style>
 
-    <h2 class="my_header text-center">Lista de preturi - FlorisDent</h2>
+    <h2 class="my_header text-center">Lista de prețuri - FlorisDent</h2>
     <br><br><br>
     <div class="container-fluid">
         <div class="row">
@@ -61,7 +61,7 @@
                         <hr>
                         <button type="submit" class="btn btn-success mx-auto"
                                 style="display:grid; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  margin: 3%;">
-                            Cauta
+                            Caută
                         </button>
                         <a href="{% url 'list-preturi' %}" class="btn btn-outline-danger mx-auto"
                            style="display:flex; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:3px; margin: 2%;">
@@ -70,9 +70,9 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <table class="table table-light table-hover" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                <table class="table table-light table-hover" style="border-style: hidden; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
                     <thead class="table_thead">
-                    <tr>
+                    <tr style="color: black; border-bottom-color: black">
                         <th>Nume serviciu</th>
                         <th>Preț Serviciu</th>
                         <th>Detalii Serviciu</th>

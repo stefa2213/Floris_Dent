@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('preturi.urls')),
     path('', include('doctori.urls')),
     path('', include('userextend.urls')),
+    path('', include('pacienti.urls')),
     path('login/', LoginView.as_view(form_class=AuthenticationLoginForm), name='login'),
     path('', include('django.contrib.auth.urls')),
 ]

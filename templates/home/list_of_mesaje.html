@@ -1,22 +1,24 @@
 {% extends 'base.html' %}
 
-{% block title %} Lista programari {% endblock %}
+{% block title %} Listă Mesaje {% endblock %}
 
 {% block content %}
     <style>
+
         .table-hover {
-            font-weight: bold;
+            color: darkblue;
+            opacity: 0.9;
         }
 
     </style>
 
-    <h2 class="my_header text-center">Lista Mesaje Clinica FlorisDent</h2>
+    <h2 class="my_header text-center">Listă Mesaje Clinica FlorisDent</h2>
     <br><br><br>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
                 <div class="card"
-                      style="width: 18rem; position: fixed; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: transparent">
+                     style="width: 18rem; position: fixed; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: transparent">
                     <h2 class="my-h text-center">Filtru Căutare</h2>
                     <hr>
                     <form class="my-h" method="get">
@@ -24,7 +26,7 @@
                         <hr>
                         <button type="submit" class="btn btn-success mx-auto"
                                 style="display:grid; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  margin: 3%;">
-                            Cauta
+                            Caută
                         </button>
                         <a href="{% url 'list-of-mesaje' %}" class="btn btn-outline-danger mx-auto"
                            style="display:flex; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:3px; margin: 2%;">
@@ -32,12 +34,12 @@
                     </form>
                 </div>
             </div>
-            <div class="col md-6" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
-                <table class="table table-striped table-hover">
+            <div class="col md-6">
+                <table class="table table-light table-hover"
+                       style="border-style: hidden; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
                     <thead>
-                    <tr>
+                    <tr style="color: black; border-bottom-color: black">
                         <th>Nume</th>
-{#                        <th>Email</th>#}
                         <th>Telefon</th>
                         <th>Subiect</th>
                         <th>Dată creare</th>
@@ -50,11 +52,12 @@
                         <tr>
                             {% if mesaj.active is True %}
                                 <td>{{ mesaj.nume }}</td>
-{#                                <td>{{ mesaj.email }}</td>#}
+                                {#                                <td>{{ mesaj.email }}</td>#}
                                 <td>{{ mesaj.numar_telefon }}</td>
                                 <td>{{ mesaj.subiect }}</td>
                                 <td>{{ mesaj.created_at }}</td>
-                                <td><a type="button" href="{% url 'detail-mesaj' mesaj.id %}" class="btn btn-primary btn-sm"
+                                <td><a type="button" href="{% url 'detail-mesaj' mesaj.id %}"
+                                       class="btn btn-primary btn-sm"
                                        style="margin: 4%; width: auto; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">Citește</a>
                                 </td>
                                 <td><a type="button" href="{% url 'rezolvare-mesaj' mesaj.id %}"

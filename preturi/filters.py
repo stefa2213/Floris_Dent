@@ -19,6 +19,6 @@ class PretFilter(django_filters.FilterSet):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.filters['nume_serviciu'].field.widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Introdu numele serviciului'})
+            {'class': 'form-control', 'placeholder': 'Introdu nume...'})
         self.filters['detalii'].field.widget.attrs.update(
             {'class': 'form-control', 'placeholder': 'Detalii'})

@@ -23,7 +23,6 @@ class ProgramariCreateView(CreateView):
     form_class = ProgramariForm
     success_url = reverse_lazy('programare-succes')
 
-    # daca vrem sa trimitem mail .. nu merge pe Heroku
 
     def form_valid(self, form):
         if form.is_valid() and not form.errors:

@@ -10,16 +10,16 @@ class DoctorForm(forms.ModelForm):
         fields = ['nume_doctor', 'specializare', 'experienta', 'email', 'varsta', 'descriere', 'image']
 
         widgets = {
-            'nume_doctor': TextInput(attrs={'placeholder': 'Introduceti numele complet', 'class': 'form-control'}),
+            'nume_doctor': TextInput(attrs={'placeholder': 'Introduceți numele complet', 'class': 'form-control'}),
             'specializare': TextInput(
-                attrs={'placeholder': 'Introduceti specializarea dumneavoastra', 'class': 'form-control'}),
+                attrs={'placeholder': 'Introduceți specializarea dumneavoastră', 'class': 'form-control'}),
             'experienta': TextInput(
-                attrs={'placeholder': 'Introduceti experienta in domeniul (ani)', 'class': 'form-control',
+                attrs={'placeholder': 'Introduceți experiența în domeniul (ani)', 'class': 'form-control',
                        'type': 'number'}),
-            'email': EmailInput(attrs={'placeholder': 'Introduceti adresa de email...', 'class': 'form-control'}),
-            'varsta': TextInput(attrs={'placeholder': 'Introduceti varsta', 'class': 'form-control', 'type': 'number'}),
+            'email': EmailInput(attrs={'placeholder': 'Introduceți adresa de email...', 'class': 'form-control'}),
+            'varsta': TextInput(attrs={'placeholder': 'Introduceți vârsta', 'class': 'form-control', 'type': 'number'}),
             'descriere': Textarea(
-                attrs={'placeholder': 'Scrieti cateva cuvinte despre dumneavoastra', 'class': 'form-control'}),
+                attrs={'placeholder': 'Scrieți câteva cuvinte despre dumneavoastră', 'class': 'form-control'}),
 
         }
 

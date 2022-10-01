@@ -10,10 +10,10 @@ class MesajForm(forms.ModelForm):
         fields = ['nume', 'email', 'numar_telefon', 'subiect', 'mesaj']
 
         widgets = {
-            'nume': TextInput(attrs={'placeholder': 'Numele dumneavoastra', 'class': 'form-control'}),
-            'email': EmailInput(attrs={'placeholder': 'Adresa  de email', 'class': 'form-control'}),
+            'nume': TextInput(attrs={'placeholder': 'Numele dumneavoastră', 'class': 'form-control'}),
+            'email': EmailInput(attrs={'placeholder': 'Adresa de email', 'class': 'form-control'}),
             'numar_telefon': TextInput(
-                attrs={'placeholder': 'Numarul de telefon (optional) ', 'class': 'form-control'}),
+                attrs={'placeholder': 'Numarul de telefon (opțional) ', 'class': 'form-control'}),
             'subiect': TextInput(attrs={'placeholder': 'Subiectul mesajului', 'class': 'form-control'}),
-            'mesaj': Textarea(attrs={'placeholder': 'Scrieti mesajul dorit', 'class': 'form-control'})
+            'mesaj': Textarea(attrs={'placeholder': 'Scrieți mesajul dorit', 'class': 'form-control'})
         }
