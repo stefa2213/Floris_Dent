@@ -14,3 +14,4 @@ class Pacient(models.Model):
 
     def __str__(self):
         return f'{self.nume} - telefon:{self.telefon}'
+
