@@ -14,7 +14,6 @@ class ProgramariFilters(django_filters.FilterSet):
                                            widget=forms.DateInput(attrs={'type': 'number', 'class': 'form-control',
                                                                          'placeholder': 'Introduceti varsta maxima'}))
     numar_telefon = django_filters.CharFilter(lookup_expr='icontains', label='Numar Telefon')
-    email = django_filters.CharFilter(lookup_expr='icontains', label='Adresa Email')
     ora_programare_gte = django_filters.DateTimeFilter(field_name='ora_programare', lookup_expr='gte',
                                                        label='Ora programare - de la:', widget=forms.DateInput(
             attrs={'class': 'form-control', 'type': 'datetime-local'}))
@@ -24,7 +23,7 @@ class ProgramariFilters(django_filters.FilterSet):
 
     class Meta:
         model = Programari
-        fields = ['prenume', 'nume', 'varsta_gte', 'varsta_lte', 'numar_telefon', 'email', 'ora_programare_gte',
+        fields = ['prenume', 'nume', 'varsta_gte', 'varsta_lte', 'numar_telefon', 'ora_programare_gte',
                   'ora_programare_lte', 'doctor']
 
     def __init__(self, *args, **kwargs):
@@ -35,7 +34,5 @@ class ProgramariFilters(django_filters.FilterSet):
             {'class': 'form-control', 'placeholder': 'Introduceti numele pacientului'})
         self.filters['numar_telefon'].field.widget.attrs.update(
             {'class': 'form-control', 'placeholder': 'Introduceti numarul de telefon'})
-        self.filters['email'].field.widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Introduceti adresa de email'})
         self.filters['doctor'].field.widget.attrs.update(
             {'class': 'form-control', 'placeholder': 'Introduceti adresa de email'})
