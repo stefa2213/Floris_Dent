@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os.path
 import os
 from pathlib import Path
-# import environ
 import dj_database_url
 import django_heroku
 
@@ -180,12 +179,4 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = os.environ.get('EMAIL_PORT')
 EMAIL_USE_SSL = True
 
-# EMAIL_HOST = 'mail.florisdent.ro'
-# EMAIL_HOST_USER = 'admin@florisdent.ro'
-# EMAIL_HOST_PASSWORD = 'Florisdent.ro2213'
-# EMAIL_PORT = 465
-# EMAIL_USE_SSL = True
-
-
 django_heroku.settings(locals())
-
