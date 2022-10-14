@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %} Listă Mesaje Arhivate {% endblock %}
+
+{% block content %}
+
+    <style>
+
+        .table-hover {
+            color: darkblue;
+            opacity: 0.9;
+        }
+
+    </style>
+
+    <h2 class="my_header text-center">Listă Mesaje Arhivate</h2>
+    <br><br><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card"
+                     style="width: 18rem; position: fixed; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: transparent">
+                    <h2 class="my-h text-center">Filtru Căutare</h2>
+                    <hr>
+                    <form class="my-h" method="get">
+                        {{ my_filter_arhivate.form.as_p }}
+                        <hr>
+                        <button type="submit" class="btn btn-success mx-auto"
+                                style="display:grid; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  margin: 3%;">
+                            Caută
+                        </button>
+                        <a href="{% url 'list-of-mesaje-arhivate' %}" class="btn btn-outline-danger mx-auto"
+                           style="display:flex; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:3px; margin: 2%;">
+                            Șterge Câmpuri</a>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <table class="table table-light table-hover"
+                       style="border-style: hidden; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                    <thead>
+                    <tr style="color: black; border-bottom-color: black">
+                        <th>Nume</th>
+                        <th>Telefon</th>
+                        <th>Subiect</th>
+                        <th>Dată creare</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for mesaj in all_mesaje_arhivate %}
+                        <tr>
+                            {% if mesaj.active is False %}
+                                <td>{{ mesaj.nume }}</td>
+                                <td>{{ mesaj.numar_telefon }}</td>
+                                <td>{{ mesaj.subiect }}</td>
+                                <td>{{ mesaj.created_at }}</td>
+                                <td><a type="button" href="{% url 'detail-mesaj' mesaj.id %}" class="btn btn-primary btn-sm"
+                                       style="margin: 4%; width: auto; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">Citeste</a>
+                                </td>
+                                {% if perms.mesaj.delete_mesaj %}
+                                    <td>
+                                        <button type="button" data-bs-toggle="modal"
+                                                class="btn btn-danger btn-sm"
+                                                data-bs-target="#mesaje_sterge{{ mesaj.id }}"
+                                                style="margin: 4%; width: auto; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                                            Sterge
+                                        </button>
+                                    </td>
+                                {% endif %}
+                            {% endif %}
+                        </tr>
+                        <div class="modal fade" id="mesaje_sterge{{ mesaj.id }}" tabindex="-1"
+                             aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Sterge Mesajul</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Mesajul:
+                                        "{{ mesaj.subiect }}", scris de: {{ mesaj.nume }} va fi șters permanent.
+                                        Confirmați?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="{% url 'sterge_mesaj' mesaj.id %}"
+                                           class="btn btn-danger">Da</a>
+                                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Nu
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="d-grid gap-2 col-2 mx-auto">
+        <a href="{% url 'list-of-mesaje' %}" class="btn btn-primary" type="button">Vezi Mesaje</a>
+    </div>
+
+
+{% endblock %}

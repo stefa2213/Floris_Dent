@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Locatia Noastră {% endblock %}
+
+{% block content %}
+    <h1 class="my_header text-center">FlorisDent - Localizare</h1>
+    <br>
+    <div class="container-fluid" style="">
+        <div>
+            <div style="display: flex; justify-content: center">
+                <iframe width="800" height="600" frameborder="0"
+                        src="https://www.bing.com/maps/embed?h=600&w=800&cp=44.1869146~28.6404792&lvl=16.6&typ=d&sty=r&src=SHELL&FORM=MBEDV2"
+                        scrolling="no" style="margin: 30px; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                </iframe>
+            </div>
+            <div style="text-align: center; width: auto;">
+                <a id="dirMapLink" target="_blank" class="btn btn-success"
+                   href="https://www.bing.com/maps/directions?cp=44.1869146~28.6404792&amp;sty=r&scene=1140291&amp;lvl=17.98&amp;rtp=~pos.44.1869134_28.64192____&amp;FORM=MBEDLD"
+                   style="text-decoration: none;   font-size: x-large; padding: 5px;margin: 2rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                    Mergi la Locație</a>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

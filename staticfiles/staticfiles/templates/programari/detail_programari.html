@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Vezi Programarea {% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+            <br><br><br>
+                <div class="card"
+                     style="opacity: 0.9; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; width: auto; background-color: #eefcfc">
+                    <div class="card-header">
+                        <h3 class="my_header text-center">Programare</h3>
+                    </div>
+                    <div class="card-body">
+                        <p style="font-weight: bold;">NUME: {{ programari.prenume }}, {{ programari.nume }}</p>
+                        <p style="font-weight: bold;">DATĂ / ORĂ: {{ programari.ora_programare }}</p>
+                        <p style="font-weight: bold;">CONTACT:</p>
+                        <p style="font-weight: bold;"> telefon: {{ programari.numar_telefon }}</p>
+                        <p style="font-weight: bold;">email: {{ programari.email }}</p>
+                        <p style="font-weight: bold;">VÂRSTĂ: {{ programari.varsta }}</p>
+                        <p style="font-weight: bold;">DOCTOR: {{ programari.doctor }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p style="font-weight: bold;">PROGRAMARE CREATĂ: {{ programari.created_at }}</p>
+                        <p style="font-weight: bold;">STARE PROGRAMARE: {% if programari.active is True %}
+                            Activă
+                        {% else %}
+                            Inactivă
+                        {% endif %}
+                        </p>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

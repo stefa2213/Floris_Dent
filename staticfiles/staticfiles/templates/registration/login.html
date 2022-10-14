@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Login Page {% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                        <h3 class="my-h text-center" style="margin: 1rem">Formular Logare</h3>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                {{ form.as_p }}
+                            </div>
+                            <div class="card-footer" style="background-color: aliceblue; border:aliceblue">
+                                <button type="submit" class="btn btn-success mx-auto"
+                                        style="width:15rem; margin: 1rem; display:flex; justify-content: center; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">Loghează-te
+                                </button>
+                                <a href="{% url 'password_reset' %}" class="btn btn-outline-danger mx-auto"
+                                   style="width:15rem; margin: 1rem; display:flex; justify-content: center; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">Am uitat parola</a>
+                                <br><br><br><br>
+                                <p class="text-center">Ești doctor sau colaborator FlorisDent?</p>
+                                <a href="{% url 'create-user' %}" class="btn btn-outline-success mx-auto"
+                                   style="display:flex; justify-content: center; width:15rem; margin: 1rem;box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">Creeaza Cont</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

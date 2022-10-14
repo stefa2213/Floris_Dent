@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% block title %} Listă programari {% endblock %}
+
+{% block content %}
+
+    <style>
+        .dropdown-toggle:hover {
+            color: #1c1f23;
+        }
+
+        .nav-item {
+            list-style-type: none;
+        }
+
+        .nav-item:hover {
+            font-weight: bold;
+        }
+
+        .dropdown-item {
+            color: black;
+            font-weight: bold;
+        }
+
+        .table_thead {
+            border: 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            color: black;
+            padding: 10px;
+        }
+
+        .table-hover {
+            color: darkblue;
+            opacity: 0.9;
+        }
+
+        .item-dd {
+            background-color: white;
+        }
+
+        .item-dd:active {
+            color: black;
+            background: rgb(252, 252, 252);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+        }
+
+    </style>
+
+    <h2 class="my_header text-center">Listă Programari</h2>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card"
+                     style="width: 18rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding: 5px; margin: 1px; background-color: transparent">
+                    <h2 class="my-h text-center">Filtru Căutare</h2>
+                    <hr>
+                    <form class="my-h" method="get">
+                        {{ my_filter.form.as_p }}
+                        <hr>
+                        <button type="submit" class="btn btn-success mx-auto"
+                                style="display:grid; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  margin: 3%;">
+                            Caută
+                        </button>
+                        <a href="{% url 'list-of-programari' %}" class="btn btn-outline-danger mx-auto"
+                             style="display:flex; justify-content:center; width: 8rem; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; padding:3px; margin: 2%;">
+                            Șterge Câmpuri</a>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <table class="table table-light table-hover" style="border-style: hidden; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                    <thead>
+                    <tr style="color: black; border-bottom-color: black">
+                        <th>Nume Pacient</th>
+                        <th>Vârstă</th>
+                        <th>Telefon</th>
+                        <th>Oră Programare</th>
+                        <th>Doctor</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for programari in all_programari %}
+                        <tr>
+                            {% if programari.active is True %}
+                                <td>{{ programari.prenume }}, {{ programari.nume }}</td>
+                                <td>{{ programari.varsta }}</td>
+                                <td>{{ programari.numar_telefon }}</td>
+                                <td>{{ programari.ora_programare }}</td>
+                                <td>{{ programari.doctor }}</td>
+                                <td>
+                                    <li class="nav-item dropdown" style="list-style-type: none">
+                                        <button class="btn dropdown-toggle" id="navbarDropdown"
+                                                role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                        </button>
+                                        <ul class="dropdown-menu dd-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item item-dd"
+                                                   href="{% url 'detail-programare' programari.id %}">Vizualizează</a></li>
+                                            <li>
+                                            <li><a class="dropdown-item item-dd"
+                                                   href="{% url 'update-programare' programari.id %}">Modifică</a></li>
+                                            <li>
+                                                <button type="button" class="dropdown-item btn-info item-dd"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#programari_{{ programari.id }}" style="color: red">
+                                                    Anulează
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </td>
+                            {% endif %}
+                        </tr>
+                        <div class="modal fade" id="programari_{{ programari.id }}" tabindex="-1"
+                             aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Anulează Programarea</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Ești sigur că vrei să anulezi programarea:
+                                        "{{ programari.prenume }} {{ programari.nume }}, {{ programari.ora_programare }}"?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="{% url 'inactive-programare' programari.id %}"
+                                           class="btn btn-danger">Da</a>
+                                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Nu
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="d-grid gap-2 col-2 mx-auto">
+        <a href="{% url 'list-of-programari-anulate' %}" class="btn btn-primary" type="button">Vezi Programările Anulate / Arhivate</a>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,142 @@
+{% load static %}
+<style>
+    .footer-brand:hover {
+        opacity: 0.8;
+    }
+
+    .footer-brand:active {
+        opacity: 0.7;
+    }
+
+    .page-footer {
+        border-radius: 3px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px -10px 20px;
+    }
+
+    .contact-button {
+        font-weight: bold;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        color: black;
+        text-decoration: none;
+        border-radius: 25px;
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-bottom: 2px;
+        background: #e0ffff;
+    }
+
+    .contact-button:hover {
+        box-shadow: #D4B6DEFF -3px -3px 3px;
+        color: darkblue;
+    }
+
+    .contact-button:active {
+        color: black;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
+    .site-address {
+        color: black;
+        font-weight: bold;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        text-decoration: none;
+        border-radius: 25px; padding-right: 5px;
+        padding-left: 5px;
+        background: rgb(252,252,252);
+        background:linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,155,255,1) 90%);
+    }
+
+    .site-address:hover {
+        box-shadow: #D4B6DEFF -3px -5px 5px;
+        color: black;
+    }
+
+    .site-address:active {
+        color: blue;
+    }
+
+    .c-right {
+        margin-top: 3.5rem;
+    }
+
+</style>
+
+
+<footer class="page-footer font-medium blue pt-4"
+        style="position: static; width:100%; height: auto; padding-bottom: 0px; background-color: #e0ffff; height: 100%">
+    <div class="container-fluid text-center text-md-left" style=" background-color: #e0ffff; height: 80px">
+        <div class="row">
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h4 class="text-uppercase" style="font-weight: bold;">Contact</h4>
+                <ul class="list-unstyled">
+                    <li style="display: block">
+                        <p style="font-weight: bold; font-size: small; padding-bottom: 0rem; margin: 0.5rem; padding-top: 0.2rem">
+                            TELEFON:</p>
+                        <a type="button" class="footer-brand contact-button" href="tel:+40736407327"
+                           title="Apelează-ne!" style="margin-top: 0rem; margin-bottom: 2rem">
+                            0736407327</a> /
+                        <a type="button" class="footer-brand contact-button" href="tel:+40723751346"
+                           title="Apelează-ne!">
+                            0723751346</a>
+                    </li>
+                    <li>
+                        <a class="footer-brand" href="{% url 'locatie' %}" title="Vezi pe harta!">
+                            <img src="{% static 'images/pin_maps.svg' %}" height="40"></a>
+                    </li>
+                    <li>
+                        <p style="text-decoration: none; color: black">ADRESĂ: Constanța, Bld. Tomis 145, Parter, Cabinet 119
+                            (în spatele Sptalului Județean, în incinta Policlinicii)
+                        </p>
+                    </li>
+                    <li>
+                        <a type="button" class="footer-brand contact-button" href="{% url 'create-mesaj' %}"
+                           title="Scrie-ne!">
+                            Contactează-ne!</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6 mt-md-0 mt-3">
+                <h3 class="text" style="font-weight: bold;">FlorisDent</h3>
+                <h6  class="text">Cabinet Medical Individual</h6>
+                <br>
+                <p style="margin-bottom: 0">Te așteptăm la Cabinetul Stomatologic FlorisDent.</p>
+                    <p>Fă-ți repede o programare!</p>
+            </div>
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h4 class="text-uppercase" style="font-weight: bold;">Social Media</h4>
+                <br>
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="footer-brand" href="https://www.instagram.com/florisdent/" title="Mergi pe pagina de Instagram">
+                            <img src="{% static 'images/insta.png' %}" height="50rem"
+                                 style=" padding-left: 10px; margin: 8px; padding-top: 5px">
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <a class="footer-brand " href="https://www.facebook.com" title="Mergi pe pagina de Facebook">
+                            <img src="{% static 'images/fbsvg.jpg' %}" height="50rem" style="padding-top: 5px">
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <a class="footer-brand" href="https://www.twitter.com" title="Mergi pe pagina de Twitter">
+                            <img src="{% static 'images/tweeter.png' %}" height="90rem"
+                                 style=" padding-left: 11px; padding-bottom: 20px;">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <div class="footer-copyright text-center gy-4 c-right"
+         style=" background-color: #e0ffff; height: 90px; padding-top: 80px">©
+        2022 FlorisDent - Cabinet Medical Individual -
+        <a class="site-address" href="https:\\florisdent.ro" style="">florisdent.ro</a>
+    </div>
+    <br>
+</footer>

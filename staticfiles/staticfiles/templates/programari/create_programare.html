@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Formular Programare {% endblock %}
+
+{% block content %}
+    <style>
+
+        .card-contact {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            width: auto;
+            background-color: transparent;
+            border-color: transparent;
+            display: block;
+            padding: 3rem;
+            justify-content: center;
+        }
+
+        .h-contact {
+            font-size: x-large;
+            text-shadow: #f3d7fa 1px 2px 3px;
+            padding-bottom: 1rem;
+
+        }
+
+    </style>
+
+    <h1 class="my_header text-center">Programează-te!</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card card-contact">
+                    <div class="card-header" style="background-color: transparent; border-color: transparent">
+                        <h3 class="text-center h-contact">Prin apel telefonic!</h3>
+                    </div>
+                    <a class="logo_telephone"
+                       style="height: 8rem; padding-top: 1px; display: flex; justify-content: center"
+                       href="tel:+40736407327"
+                       title="Apelează-ne telefonic!">
+                        <img src="{% static 'images/telephone.svg' %}">
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card card-contact">
+                    <div class="card-header" style="background-color: transparent; border-color: transparent">
+                        <h3 class="text-center h-contact">Prin WhatsApp!</h3>
+                    </div>
+                    <a class="logo_wapp" style="height: 8rem; padding-top: 1px; display: flex; justify-content: center"
+                       href="https://api.whatsapp.com/send?phone=+40736407327&text=Buna ziua, as dori o programare va rog!"
+                       title="Contacteaza-ne prin WhatsApp">
+                        <img src="{% static 'images/wapp.png' %}">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3"><br><br>
+                <div class="card" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; background-color: transparent">
+                    <div class="card-header">
+                        <h3 class="text-center h-contact">Prin formular!</h3>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %} {# csrf->cross site request forgery protection #}
+                        <div class="card-body">
+                            {{ form.as_p }}
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-outline-success" style="color: #180d0d">Programează!</button>
+                        </div>
+                    </form>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

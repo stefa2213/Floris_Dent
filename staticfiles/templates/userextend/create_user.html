@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Creeaza Cont Nou {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                        <h3 class="my-h">Creeaza Cont Nou</h3>
+                        <hr>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                {{ form.as_p }}
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-outline-success"
+                                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">Creeaza
+                                </button>
+                                <p style="float: right; padding-top: 7px">*Contul tau va fi analizat de catre
+                                    administrator</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

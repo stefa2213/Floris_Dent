@@ -1,0 +1,121 @@
+Content-Type: multipart/alternative;
+ boundary="===============5906895236348834206=="
+MIME-Version: 1.0
+Subject: O noua programare la FlorisDent
+From: stefan.nosca@florisdent.ro
+To: stefan.nosca@yahoo.com
+Date: Sun, 28 Aug 2022 09:35:20 -0000
+Message-ID: <166167932065.6548.7526756870808860667@DESKTOP-LF104CK>
+
+--===============5906895236348834206==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html lang="en">
+<head style="background: darkblue">
+    <meta charset="UTF-8">
+    <title>Clinica FlorisDent-Programare</title>
+</head>
+<div style="background-color: lightcyan;">
+    <div class="col-sm-4">
+        <div class="card" style="width: auto">
+            <header style="margin: 0px;">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <a class="button" href="https://www.florisdent.ro" title="Acceseaza pagina noastra web!">
+                            <img src="https://www.florisdent.ro/florisdent_project/static/images/florisdent_logo.svg"
+                                 height="30"
+                                 style="display: block; margin: auto"
+                                 href="https://www.florisdent.ro">
+                        </a>
+                        <br>
+                        <h1 style="text-align: center">Bun venit la Clinica FlorisDent!</h1>
+                        <br>
+                        <h1 style=" text-align: center">Salut, Cristina Craciun! </h1>
+                    </div>
+                </div>
+            </header>
+            <br><br>
+            <h3 style="text-align: center">Tocmai te-ai programat la clinica FlorisDent, la data /
+                ora: Aug. 18, 2022, 12:35 p.m.</h3>
+            <h3 style="text-align: center">Doctorul tau va fi: Marian Popescu</h3>
+            <br>
+            <h4 style="text-align: center"> Te asteptam cu drag! </h4>
+            <h5 style="text-align: center; color: darkblue">ADRESA: Bld. Tomis 145, Parter, Cabinet 119
+                (in spatele Sptalului Judetean, in incinta Policlinicii)</h5>
+            <br>
+            <h4 style="text-align: center">Viziteaza site-ul nostru:</h4>
+            <h4 style="text-align: center; text-shadow: darkblue;">
+                <a class="button" href="https://www.florisdent.ro" style="text-decoration: none"
+                   title="Acceseaza pagina noastra web!">florisdent.ro</a>
+            </h4>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+--===============5906895236348834206==--
+
+-------------------------------------------------------------------------------
+Content-Type: multipart/alternative;
+ boundary="===============7880986982076751503=="
+MIME-Version: 1.0
+Subject: O noua programare la FlorisDent
+From: stefan.nosca@florisdent.ro
+To: craciun@flori.com
+Date: Sun, 28 Aug 2022 09:35:20 -0000
+Message-ID: <166167932066.6548.13589180826718141093@DESKTOP-LF104CK>
+
+--===============7880986982076751503==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html lang="en">
+<head style="background: darkblue">
+    <meta charset="UTF-8">
+    <title>Clinica FlorisDent-Programare</title>
+</head>
+<div style="background-color: lightcyan;">
+    <div class="col-sm-4">
+        <div class="card" style="width: auto">
+            <header style="margin: 0px;">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <a class="button" href="https://www.florisdent.ro" title="Acceseaza pagina noastra web!">
+                            <img src="https://www.florisdent.ro/florisdent_project/static/images/florisdent_logo.svg"
+                                 height="30"
+                                 style="display: block; margin: auto"
+                                 href="https://www.florisdent.ro">
+                        </a>
+                        <br>
+                        <h1 style="text-align: center">O noua programare-FlorisDent!</h1>
+                        <br>
+                        <h1 style=" text-align: center">Buna, Marian Popescu! </h1>
+                    </div>
+                </div>
+            </header>
+            <br><br>
+            <h3 style="text-align: center">S-a facut o noua programare pe numele tau.</h3>
+            <h3 style="text-align: center">La data / ora: Aug. 18, 2022, 12:35 p.m., vei avea pacientul:</h3>
+            <h3 style="text-align: center">Craciun, Cristina.</h3>
+            <br>
+            <h4 style="text-align: center"> O zi frumoasa! </h4>
+            <br>
+            <h4 style="text-align: center; text-shadow: darkblue;">
+                <a class="button" href="https://www.florisdent.ro" style="text-decoration: none"
+                   title="Acceseaza pagina noastra web!">florisdent.ro</a>
+            </h4>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+--===============7880986982076751503==--
+
+-------------------------------------------------------------------------------

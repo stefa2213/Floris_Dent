@@ -1,0 +1,26 @@
+
+.my_header {
+    color: #00008b;
+    font-size: xxx-large;
+    font-family: Inder, Verdana, Paytone One;
+    text-shadow: 0 11px 8px #c4b59d;
+}
+
+.navbar-brand:hover {
+    opacity: 0.7;
+}
+
+
+.nav-link {
+    font-size: large;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+
+#btn_wapp:hover {
+    opacity: 0.5;
+    text-decoration: none;
+}

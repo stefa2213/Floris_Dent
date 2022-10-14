@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Adauga un nou Doctor {% endblock %}
+
+{% block content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3"><br><br>
+                    <div class="card" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; background-color: aliceblue">
+                        <div class="card-header">
+                            <h3 class="text-center">Adaugă un doctor nou</h3>
+                        </div>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %} {# csrf->cross site request forgery protection #}
+                            <div class="card-body">
+                                {{ form.as_p }}
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-success">Salvează</button>
+                            </div>
+                        </form>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,229 @@
+{% load static %}
+
+<style>
+
+    #navbar-brand {
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+    }
+
+    .navbar {
+        border-radius: 3px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 12px 20px;
+        width: 100%;
+        float: left;
+        margin: 0 0 0 0;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+
+
+    .nav-item {
+        font-weight: bold;
+        font-size: smaller;
+        font-family: "Microsoft Sans Serif";
+        margin: 0;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        color: black;
+        border-radius: 23px;
+
+    }
+
+    .nav-item:hover {
+        box-shadow: #D4B6DEFF -3px -3px 3px;
+        opacity: 1;
+    }
+
+    .nav-item:active {
+        color: black;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
+    .b_user {
+        border-radius: 25px;
+        font-family: "Microsoft Sans Serif";
+    }
+
+    .b_user:hover {
+        box-shadow: #D4B6DEFF -3px -5px 5px;
+        border-radius: 25px;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
+    .b_doctor {
+        border-radius: 25px;
+        font-family: "Microsoft Sans Serif";
+        font-size: medium;
+        margin-top: 5px;
+        margin-left: 0;
+        font-weight: bold;
+    }
+
+
+    .b_doctor:hover {
+        box-shadow: #D4B6DEFF -3px -5px 5px;
+        border-radius: 25px;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
+    .b_doctor:active {
+        color: black;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
+    .item-dd {
+        background-color: #e0ffff;
+        font-size: small;
+        font-weight: bold;
+        border-radius: 23px;
+        margin: 2px;
+    }
+
+    .item-dd:hover {
+        color: darkblue;
+    }
+
+    .item-dd:active {
+        color: black;
+        background: rgb(252, 252, 252);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(237, 155, 255, 1) 90%);
+    }
+
+    .dd-menu {
+        background-color: transparent;
+        border-color: transparent;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        float: left;
+    }
+
+</style>
+
+
+<nav class="navbar navbar-expand-sm sticky-top" style="background-color: #e0ffff; height: 80px">
+    <div class="container-fluid">
+        <a id="navbar-brand" class="navbar-brand" href="{% url 'home' %}" title="Prima Pagina FlorisDent">
+            <img src="{% static 'images/florisdent_logo.svg' %}"
+                 style="height: 1.6rem;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <br>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'list-preturi' %}"
+                       title="Vezi serviciile noastre!">Servicii</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'list-of-doctori' %}"
+                       title="Vezi doctorii nostri!">Doctori</a>
+                </li>
+                <li class="nav-item d-flex">
+                    <a class="nav-link active" aria-current="page" href="{% url 'locatie' %}"
+                       title="Vezi unde ne gasesti in Constanta">Locație
+                    </a>
+                </li>
+                <li class="nav-item d-flex">
+                    <a class="nav-link active" aria-current="page" href="{% url 'create-mesaj' %}"
+                       title="Contacteaza-ne!">Contact
+                    </a>
+                </li>
+                <li class="nav-item d-flex">
+                    <a class="nav-link active" aria-current="page" href="{% url 'galerie' %}"
+                       title="Vezi Galeria FlorisDent!">Galerie
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" title="Fă o programare!" style="color: darkblue; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                        border-radius: 25px; background: rgb(252,252,252); background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(237,155,255,1) 90%);">
+                        Programare
+                    </a>
+                    <ul class="dropdown-menu dd-menu">
+                        <li class="nav-item text-center"><a class="dropdown-item item-dd" href="tel:+40736407327"
+                                                title="Apelează-ne!">Telefonic</a>
+                        <li class="nav-item text-center"><a class="dropdown-item item-dd"
+                                                href="https://api.whatsapp.com/send?phone=+40736407327&text=Buna ziua, as dori o programare, ma puteti ajuta?"
+                                                title="Contacteaza-ne prin WhatsApp">WhatsApp</a></li>
+                        <li class="nav-item text-center"><a class="dropdown-item item-dd" href="{% url 'create-programare' %}"
+                                                title="Programeaza-te prin formularul nostru!">Formular</a>
+                        </li>
+                    </ul>
+                </li>
+                <a class="navbar-brand"
+                   href="https://api.whatsapp.com/send?phone=+40736407327&text=Buna ziua, as dori o programare, ma puteti ajuta?"
+                   title="Contacteaza-ne prin WhatsApp">
+                    <img src="{% static 'images/wapp.png' %}" style="height: 25px; padding-top: 1px">
+                </a>
+                {% if user.is_authenticated %}
+                    <div class="dropdown">
+                    <button class="btn b_doctor dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" title="Vezi Meniul Doctorului">
+                        Meniu Doctor
+                    </button>
+                    <ul class="dropdown-menu dd-menu">
+                    <li class="nav-item">
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'list-of-programari' %}"
+                           title="Vezi programarile!">Programări</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'list-of-pacienti' %}"
+                           title="Vezi pacienți!">Pacienți</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'list-of-mesaje' %}"
+                           title="Vezi mesajele!">Mesaje</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'create-preturi' %}"
+                           title="Adauga un serviciu!">Adaugă Serviciu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'create-pacienti' %}"
+                           title="Adauga un serviciu!">Adaugă Pacient</a>
+                    </li>
+
+                {% endif %}
+
+                {% if perms.doctori.add_doctor %}
+                    <li class="nav-item">
+                        <a class="dropdown-item text-center item-dd" aria-current="page"
+                           href="{% url 'create-doctori' %}"
+                           title="Vezi un doctor!">Adaugă Doctor</a>
+                    </li>
+                {% endif %}
+                </ul>
+                </div>
+            </ul>
+            {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <button class="btn b_user dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Salut, {{ user }}
+                    </button>
+                    <ul class="dropdown-menu dd-menu">
+                        <li class="nav-item">
+                            <a class="dropdown-item text-center item-dd" href="{% url 'logout' %}" class="btn btn-info">Ieși
+                                din cont</a></li>
+                        <li class="nav-item"><a class="dropdown-item text-center item-dd"
+                                                href="{% url 'password_change' %}">Schimbă parola</a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
