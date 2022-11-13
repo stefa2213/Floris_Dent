@@ -13,7 +13,7 @@ import os.path
 import os
 from pathlib import Path
 import dj_database_url
-# import django_heroku  # for heroku
+import django_heroku  # for heroku
 
 # env = environ.Env()
 # environ.Env.read_env()
@@ -178,4 +178,4 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = os.environ.get('EMAIL_PORT')
 EMAIL_USE_SSL = True
 
-# django_heroku.settings(locals()) # for heroku
+django_heroku.settings(locals()) # for heroku
