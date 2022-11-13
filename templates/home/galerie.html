@@ -8,8 +8,8 @@
     <style>
 
         .galerie {
-            margin: 5%;
-            width: 90%;
+            margin: 2%;
+            width: 450px;
             height: auto;
             box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
             border: 5px;
@@ -17,6 +17,7 @@
         }
 
         .my_header {
+            margin-right: 3rem;
             text-shadow: 0 1px 1px #d8a2e3;
             color: black;
 
@@ -24,9 +25,9 @@
 
         .galerie:hover {
             zoom: normal;
-            width: 90%;
-            transform: scale(1.15);
+            transform: scale(1.2);
             transition: all 0.8s;
+            z-index: 1;
         }
 
         .modal-header {
@@ -215,7 +216,7 @@
 
             <div class="col-sm-6">
                 <a type="button" class="card galerie" data-bs-toggle="modal" data-bs-target="#myModal_doc_aparatura_h"
-                   title="Apasa pentru a mari imaginea."><img
+                   title="Apasa pentru a mari imaginea!"><img
                         src="{% static 'images/cabinet/doc_aparatura_h.jpg' %}" height="auto" width="auto" style="display: block;"></a>
             </div>
 
